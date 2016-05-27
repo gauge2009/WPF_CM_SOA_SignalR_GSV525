@@ -30,7 +30,7 @@
             $(function () {
                 $.connection.hub.url = "http://localhost:11111/hub";
                 var hub = $.connection.pingHub;
-                hub.client.message = function(data) {
+                hub.client.update = function (data) {
                     $("#results").prepend("<li>" + data + "</li>");
                 };
                 $.connection.hub.start()

@@ -23,10 +23,14 @@ namespace Alayaz.SOA.IService.ConsoleHost
 
                 Console.WriteLine("Service Host Satrt...!");
 
+                #region SignalR  Conn
+
                 StartSgnlR();
 
-                Console.ReadLine();
-            }
+                #endregion
+              
+
+             }
             catch (Exception ex)
             {
 
@@ -36,7 +40,7 @@ namespace Alayaz.SOA.IService.ConsoleHost
                     var e = ex.InnerException;
                     LogHelper.WriteLog(typeof(Program), string.Format("Message:{0};StackTrace{1}", e.Message, e.StackTrace));
                 }
-                if (ex.InnerException.InnerException != null)
+                if (ex.InnerException != null&&ex.InnerException.InnerException != null)
                 {
                     var e = ex.InnerException.InnerException;
                     LogHelper.WriteLog(typeof(Program), string.Format("Message:{0};StackTrace{1}", e.Message, e.StackTrace));
@@ -44,20 +48,45 @@ namespace Alayaz.SOA.IService.ConsoleHost
 
             }
 
-            #region SignalR
-
-            StartSgnlR();
-
-            #endregion
+        
         }
 
         private static void StartSgnlR()
         {
-            using (WebApp.Start<Startup>("http://localhost:11111"))
+            string url = "http://localhost:11111";
+            using (WebApp.Start<Startup>(url))
             {
-                Console.WriteLine("Server running at http://localhost:11111");
-                Console.ReadLine();
+                Console.WriteLine("Server running at {0}", url);
+
+                var input = Console.ReadLine();
+                while (input == "hi")
+                {
+                    #region SignalR  BroadcastLog
+
+
+                    // var hubConn = new PingHub();
+                    // hubConn.BroadcastLog(  "Ping received at " + DateTime.Now.ToLongTimeString());
+                    var context = GlobalHost.ConnectionManager.GetHubContext<PingHub>();
+                    context.Clients.All.Update(  "Update received at " + DateTime.Now.ToLongTimeString());
+
+                    //context. Clients.Others.Update(msg);
+
+
+                    #endregion
+                    input = Console.ReadLine();
+                }
+
             }
+            // This will *ONLY* bind to localhost, if you want to bind to all addresses
+            // use http://*:8080 to bind to all addresses. 
+            // See http://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx 
+            // for more information.
+            //string url = "http://localhost:11111";
+            //using (WebApp.Start(url))
+            //{
+            //    Console.WriteLine("Server running on {0}", url);
+            //    Console.ReadLine();
+            //}
         }
     }
 

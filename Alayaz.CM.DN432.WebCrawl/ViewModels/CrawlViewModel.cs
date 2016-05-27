@@ -34,6 +34,7 @@ using Alayaz.SOA.IService;
 using jaxws = Alayaz.CM.DN432.WebCrawl.ImpInvoiceServiceReference;
 using Alayaz.Graph.WPF.Common;
 using Alayaz.CM.DN432.WebCrawl.ServiceProxy;
+using Microsoft.AspNet.SignalR.Client.Hubs;
 //using Alayaz.CM.DN432.WebCrawl.ServiceProxy;
 
 namespace Alayaz.CM.DN432.WebCrawl.ViewModels
@@ -273,8 +274,11 @@ namespace Alayaz.CM.DN432.WebCrawl.ViewModels
 
 #endif
             //this.webBox .SourceUpdated+= WebBox_SourceUpdated;
-        }
 
+
+
+        }
+     
 
         #region  Methods for Action
 
@@ -555,7 +559,9 @@ namespace Alayaz.CM.DN432.WebCrawl.ViewModels
                     case "CONFIG":
                         dateBegin = this.Begin; // 2016-05-4
                         dateEnd = this.End;
-                        AutoCrawl(view, btn);
+                        ///////////////////////////////////////////////////// 
+                        //////////  AutoCrawl(view, btn); ///////////////////
+                        /////////////////////////////////////////////////////
                         break;
                     case "DB":
 

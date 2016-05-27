@@ -6,6 +6,17 @@ namespace Alayaz.SOA.IService.ConsoleHost
 {
     public class PingHub : Hub
     {
+        public Task BroadcastLog(string msg)
+        {
+            
+            return Clients.Others.Update(msg);
+        }
+        public Task BroadcastClear()
+        {
+             return Clients.Others.SayGoobye();
+        }
+
+
         public override Task OnConnected()
         {
             Console.WriteLine("[Hub] Client connected");
@@ -15,7 +26,7 @@ namespace Alayaz.SOA.IService.ConsoleHost
         public Task Ping()
         {
             Console.WriteLine("[Hub] Ping received");
-            return Clients.Caller.Message(
+            return Clients.Caller.Update(
                 "Ping received at " + DateTime.Now.ToLongTimeString());
         }
 
@@ -24,5 +35,6 @@ namespace Alayaz.SOA.IService.ConsoleHost
             Console.WriteLine("[Hub] Client disconnected");
             return base.OnDisconnected(  stopCalled);
         }
-    }
+
+     }
 }

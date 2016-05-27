@@ -1,4 +1,5 @@
 ﻿using Alayaz.Graph.WPF.Common;
+using Microsoft.AspNet.SignalR.Client.Hubs;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Alayaz.CM.DN432.WebCrawl
 
             }
 
+
             Alayaz.CM.DN432.WebCrawl.App app = new Alayaz.CM.DN432.WebCrawl.App();
             app.Run();
             Alayaz.CM.DN432.WebCrawl.App.Main();
@@ -62,7 +64,7 @@ namespace Alayaz.CM.DN432.WebCrawl
 
         public static string RegPath = @"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION";
 
-
+        public HubConnection _hubConn = null;
 
         public App()
         {
@@ -89,9 +91,65 @@ namespace Alayaz.CM.DN432.WebCrawl
 
 
 
+            #region SignalR client 
+
+
+            ///////////////////////////////////////////////////////////////
+            // SignalR local Client code
+            ///////////////////////////////////////////////////////////////
+            var server = "http://localhost:11111/hub";
+
+            //JR: HubConnection
+            _hubConn = new HubConnection(server, false);
+            // CreateHubProxy
+            var hubProxy = _hubConn.CreateHubProxy("PingHub");
+
+            // Promise for  hub.client.<Event handlers>
+            hubProxy.On("SayGoobye", () =>
+            {
+                MessageBox.Show("SayGoobye");
+            });
+
+            hubProxy.On("Update", (string msg) =>
+            {
+                Update(msg);
+            });
+
+            
+            // Hub Start
+            _hubConn.Start().ContinueWith(t =>
+            {
+                if (t.IsFaulted)
+                {
+                    MessageBox.Show(string.Format("Error connecting to {0}. Are you using the right URL? {1}",server,t.Exception.InnerException.Message));
+                }
+            });
+          
+           // // Hub Stop
+           //hubConn.Stop();
+            #endregion
+
 
 
         }
+        private static void Update(string msg)
+        {
+            MessageBox.Show(msg);
+
+        }
+
+
+        protected override void OnExit(ExitEventArgs e){
+            base.OnExit(e);
+
+            // Hub Stop
+            if(_hubConn!=null)
+
+                _hubConn.Stop();
+
+        }
+
+
         /*
                  64 bit or 32 bit only machine:
         HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION
