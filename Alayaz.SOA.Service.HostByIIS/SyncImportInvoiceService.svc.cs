@@ -48,12 +48,19 @@ namespace Alayaz.SOA.Service.HostByIIS
                         entity = db.VIMS_BIZ_INVOICE.First(o => o.FPDM == model.InvoiceCode && o.FPHM == model.InvoiceNumber);
                         //db.VIMS_BIZ_INVOICE.Remove(old);
                         entity.DKZT = model.DeductionStatus;
+                        // entity.QRBZ = model.IsChosen == "是" ? "2" : "1";
+                        entity.XFMC = model.SalesName;
                         entity.SHRQ = DateTime.Now;
+
                     }
                     else
                     {//新增
                         entity = new VIMS_BIZ_INVOICE();
                         entity.ID = Guid.NewGuid().ToString();
+                        entity.DKZT = model.DeductionStatus;
+                        // entity.QRBZ = model.IsChosen == "是" ? "2" : "1";
+                        entity.XFMC = model.SalesName;
+                        entity.SHRQ = DateTime.Now;
 
                         #region 非空冗余
                         entity.FPLB = "0";
@@ -61,10 +68,8 @@ namespace Alayaz.SOA.Service.HostByIIS
                         entity.FPMW = "N/A";
                         // entity.FPSL = 0.0M;//发票税率（只有机动车销售发票显示税率）
                         entity.QDBZ = "N";//清单标识（当清单标识为Y时发票为汉字防伪发票）
-                        entity.SHRQ = DateTime.Now;
                         #endregion
                         #region Mapping
-                        entity.DKZT = model.DeductionStatus;
                         entity.RZJG = "0";//认证结果（0：认证通过，1：认证未通过，255：待认证）
                         entity.RZZT = "0";//!string.IsNullOrEmpty(model.CertificateStatus) && string.Compare(model.CertificateStatus, "已确认", StringComparison.InvariantCultureIgnoreCase) == 0 ? "0" : "1"; //认证结果（0：认证通过，1：认证未通过，255：待认证）//认证状态 0：可以认证 1：不能认证
                         entity.FPDM = model.InvoiceCode;
@@ -72,7 +77,7 @@ namespace Alayaz.SOA.Service.HostByIIS
                         DateTime d_createDate = DateTime.Now;
                         entity.KPRQ = DateTime.TryParse(model.CreateDate, out d_createDate) ? d_createDate : d_createDate;
 
-                        entity.XFSH = model.SalesTaxNumber;//销方税号（货运为承运人，机动车为纳税人识别号）
+                        entity.XFSH = "N/A";//model.SalesTaxNumber;//销方税号（货运为承运人，机动车为纳税人识别号）
                         entity.FPJE = model.Amount;
                         entity.FPSE = model.Tax;
                         //??????

@@ -149,6 +149,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="TypeBuilderHelper.cs" />
+    <Compile Include="ViewModels\Crawl525ViewModel.cs" />
     <Compile Include="ViewModels\ConfirmViewModel.cs" />
     <Compile Include="ViewModels\ContractViewModel.cs" />
     <Compile Include="AppStart\ShellViewModel.cs" />
@@ -180,6 +181,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ConfirmView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Confirm525View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

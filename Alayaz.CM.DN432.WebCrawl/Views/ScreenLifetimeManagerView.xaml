@@ -8,7 +8,7 @@
         Icon="/Alayaz.CM.DN432.WebCrawl;component/imgs/user.png"
         Width="500" Height="100" 
                    >
-    <!--  Width="{Binding WidthVal}" Height="{Binding HeightVal}" 
+    <!--    Width="500" Height="100"   Width="{Binding WidthVal}" Height="{Binding HeightVal}" 
     Style="{DynamicResource AlayazStyleWindowStyle}"  
     cal:Message.Attach="[Event Loaded]= [Action InitSource($source,$view)];]"-->
 

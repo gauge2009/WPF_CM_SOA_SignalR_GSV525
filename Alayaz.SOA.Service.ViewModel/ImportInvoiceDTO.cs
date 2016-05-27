@@ -76,6 +76,15 @@ namespace Alayaz.SOA.Service.ViewModel
             set;
         }
         /// <summary>
+        /// 销方名称
+        /// </summary>
+        [DataMember]
+        public string SalesName
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 金额
         /// </summary>
         [DataMember]
@@ -105,7 +114,7 @@ namespace Alayaz.SOA.Service.ViewModel
             set;
         }
         /// <summary>
-        /// 发票状态 (正常)
+        /// 发票状态 (正常  作废  异常  失控  红冲  )
         /// </summary>
         [DataMember]
         public string Status
@@ -123,10 +132,48 @@ namespace Alayaz.SOA.Service.ViewModel
             set;
         }
         /// <summary>
-        /// 操作时间 （未操作 / DateTime）
+        ///  /// 是否勾选并保存 （是/否）
         /// </summary>
         [DataMember]
-        public string OperationTime
+        public string IsChosen
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        ///  /// 是否在页面上勾选 （1/0）
+        /// </summary>
+        [DataMember]
+        public string IsPageChosen
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 勾选时间 （2016-05-23 16:09:26）
+        /// </summary>
+        [DataMember]
+        public string ChosenTime
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 是否扫描认证  
+        /// </summary>
+        [DataMember]
+        public string IsScanCertificated
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 认证月份  
+        /// </summary>
+        [DataMember]
+        public string CertificateMonth
         {
             get;
             set;
@@ -159,15 +206,7 @@ namespace Alayaz.SOA.Service.ViewModel
             set;
         }
 
-        /// <summary>
-        /// '勾选标志（已勾选、未勾选）';
-        /// </summary>
-        [DataMember]
-        public string IsChosen
-        {
-            get;
-            set;
-        }
+   
         /// <summary>
         /// '确认标志（已确认，未确认）';  
         /// </summary>

@@ -660,7 +660,7 @@ namespace Alayaz.CM.DN432.WebCrawl.ViewModels
                 soap.List.ForEach(impinfo =>
                 {
                     if(IsUnConfirmChecked)
-                        LogHelper.WriteLog(typeof(WebBoxView), string.Format("发票代码{0} 发票号码{1} 开票日期{2} 销方税号{3} 金额{4} 税额{5} 来源{6} 发票状态{7} 勾选标志{8} 操作时间{9}", impinfo.InvoiceCode, impinfo.InvoiceNumber, impinfo.CreateDate, impinfo.SalesTaxNumber, impinfo.Amount, impinfo.Tax, impinfo.From, impinfo.Status, impinfo.SelectTag, impinfo.OperationTime));
+                        LogHelper.WriteLog(typeof(WebBoxView), string.Format("发票代码{0} 发票号码{1} 开票日期{2} 销方税号{3} 金额{4} 税额{5} 来源{6} 发票状态{7} 勾选标志{8} 操作时间{9}", impinfo.InvoiceCode, impinfo.InvoiceNumber, impinfo.CreateDate, impinfo.SalesTaxNumber, impinfo.Amount, impinfo.Tax, impinfo.From, impinfo.Status, impinfo.SelectTag, impinfo.ChosenTime));
                     else
                         LogHelper.WriteLog(typeof(WebBoxView), string.Format("发票代码{0} 发票号码{1} 开票日期{2} 销方税号{3} 金额{4} 税额{5} 来源{6} 发票状态{7} 确认月份{8}", impinfo.InvoiceCode, impinfo.InvoiceNumber, impinfo.CreateDate, impinfo.SalesTaxNumber, impinfo.Amount, impinfo.Tax, impinfo.From, impinfo.Status, impinfo.SelectTag ));
 
@@ -904,7 +904,7 @@ namespace Alayaz.CM.DN432.WebCrawl.ViewModels
                                 dto.SelectTag = colum.StringText;//勾选状态
                                 break;
                             case 9:
-                                dto.OperationTime = colum.StringText;//勾选时间
+                                dto.ChosenTime = colum.StringText;//勾选时间
                                 break;
                         }
 

@@ -121,7 +121,7 @@ namespace Alayaz.CM.DN432.WebCrawl
             {
                 if (t.IsFaulted)
                 {
-                    MessageBox.Show(string.Format("Error connecting to {0}. Are you using the right URL? {1}",server,t.Exception.InnerException.Message));
+                   // MessageBox.Show(string.Format("Error connecting to {0}. Are you using the right URL? {1}",server,t.Exception.InnerException.Message));
                 }
             });
           

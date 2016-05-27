@@ -27,7 +27,7 @@ namespace Alayaz.SOA.Service.Tests
                 From = "底帐",
                 Status = "正常",
                 SelectTag = "未勾选",
-                OperationTime = "未操作"
+                ChosenTime = "未操作"
             };
             ImportInvoiceListDTO soap = new ImportInvoiceListDTO();
             soap.List = new List<ImportInvoiceDTO> { model };

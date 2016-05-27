@@ -11,14 +11,15 @@ namespace Alayaz.CM.DN432.WebCrawl.ViewModels
     [Export(typeof(IShell))]
     public class ScreenLifetimeManagerViewModel : Conductor<object>, IShell
     {
-        readonly CrawlViewModel screen1;
+       // readonly CrawlViewModel screen1;
+        readonly Crawl525ViewModel screen1;
         readonly LoginViewModel screen2;
         readonly ConfirmViewModel screen3;
         readonly Screen initialialScreen;
         readonly Stack<object> previous = new Stack<object>();
         bool goingBack;
         [ImportingConstructor]
-        public ScreenLifetimeManagerViewModel(CrawlViewModel screen1, LoginViewModel screen2, ConfirmViewModel  screen3)
+        public ScreenLifetimeManagerViewModel(Crawl525ViewModel screen1, LoginViewModel screen2, ConfirmViewModel  screen3)
         {
             this.WindowTitle = string.IsNullOrEmpty(ConfigurationManager.AppSettings.Get("WindowTitle")) ? this.GetType().FullName : ConfigurationManager.AppSettings.Get("WindowTitle");
 
