@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Alayaz.SOA.Service.HostByIIS.SyncImportInvoiceService" CodeBehind="SyncImportInvoiceService.svc.cs" %>

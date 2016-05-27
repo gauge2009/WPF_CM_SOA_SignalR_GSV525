@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <OBJECT id="CryptCtrl" border="0" classid="CLSID:3C474273-7F8B-4690-8C34-855C4528658D" style="visibility:hidden;"></OBJECT>
+    <title>增值税发票查询平台</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/theme-popover.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.alerts.css">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.alerts.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/tableload.js"></script>
+    <script type="text/javascript" src="js/crypt.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/cookies.js"></script>
+</head>
+
+<body>
+    <!--login_header begin-->
+    <div id="login_header" style="margin-top:-10px;">
+        <div class="logo2 clearfix">
+            <a href="#" class="floatL"><img src="images/logo2.gif" /></a>
+            <span class="floatR color_2" style="margin-top:40px;"><a href="czxd.html" target="_blank"><span class="color_2">流程指引</span></a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="jiance.html" target="_blank"><span class="color_2">检测环境</span></a></a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="javascript:void(0)" class="theme-gonggao"><span class="color_2">升级公告</span></a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="cjwt.html" target="_blank"><span class="color_2">常见问题</span></a> </span>
+        </div>
+    </div>
+    <!--login_header end-->
+    <!--login_main begin edit by 20160303-->
+    <div id="login_main">
+        <div class="login_main1">
+            <div class="login_box">
+                <div class="mbbox">
+                    <ul>
+                        <li id="mb2" class="hover" style="width:330px;">系统登录</li>
+                    </ul>
+                </div>
+                <div class="conbox">
+                    <div id="con_mb_2">
+                        <form name="" method="" action="">
+                            <span class="login_pad" id="login_pass1">
+                                证书密码：<input type="text" id="password1" class="login_input key" style="width:180px;" value="输入税控盘/金税盘证书密码" />
+                            </span>
+                            <span class="login_pad" style="display:none;" id="login_pass">
+                                证书密码：<input type="password" id="password" class="login_input key" value="" />
+                            </span>
+
+                            <span id="ptmm" class="login_pad" style="display:none ;">
+                                平台密码：<input type="password" id="password2" class="login_input password" value="" />
+                            </span>
+                            <span class="color_3" id="ptmmTs" style="margin-left:50px;display:none ;">
+                                请输入平台密码
+                                <a href="#" class="for_key for_key_alert" onclick="">忘记平台密码？</a>
+                            </span>
+
+                            <span class="login_pad">
+                                <input type="button" id="submit" value="登录" class="sub_1" />
+                                <input type="button" id="unsubmit" style="display:none;" value="登录" class="sub_2" />
+                            </span>
+                            <div class="login_word">
+                                &raquo;&nbsp;&nbsp;首次访问请下载<a href="driver.html" id="downlod_driver" target="_blank">驱动程序和安全控件</a><br />
+                            </div>
+                            <div class="login_word">
+                                <img src="images/gengxin.gif" style="vertical-align:middle;" /><span style="font-size:12px;margin-left:5px; color:#888;">最近更新：2016-05-25 12:20:22</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--login_main end-->
+    <!--footer begin-->
+    <div id="login_footer">
+        <div>
+            监制单位：国家税务总局电子税务管理中心&nbsp;&nbsp;&nbsp;&nbsp;研发单位：长城计算机软件与系统有限公司<br />
+            请使用IE8及以上浏览器&nbsp;&nbsp;&nbsp;&nbsp;建议分辨率1280*768及以上
+            &nbsp;&nbsp;&nbsp;&nbsp;版本号：<span id="version"></span><br />
+        </div>
+    </div>
+    <!--footer end-->
+    <!--弹层-->
+    <div class="theme-popover" style="width:450px; margin-left:-250px;z-index:999 !important;">
+        <div class="theme-poptit">
+            <a href="javascript:;" title="关闭" class="close">×</a>
+            <h3><center>登录提示</center></h3>
+        </div>
+        <div class="theme-popbod" style="line-height: 30px;">
+
+        </div>
+    </div>
+    <div class="theme-popover-mask"></div>
+    <!--弹层-->
+    <!--弹层-->
+    <div class="theme-popover2" style="width:450px; margin-left:-250px;z-index:999 !important;">
+        <div class="theme-poptit2">
+            <a href="javascript:;" title="关闭" class="close">×</a>
+            <h3><center>取消平台密码</center></h3>
+        </div>
+        <div class="theme-popbod2" style="line-height: 30px;">
+            <div class="form">
+                <table border="0" class="height50" style="margin-left:50px;">
+                    <tr>
+                        <td>
+                            <span style="width:90px; display:inline-block;text-align: right;">密码问题：</span>
+                            <span><input type="text" class="input_1" disabled="disabled" style="width:200px;border:0px;" id="question" /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span style="width:90px; display:inline-block;text-align: right;"><span class="color_3 pad5_r">*</span>答案：</span>
+                            <span><input type="text" class="input_1" style="width:200px;" id="answer" maxlength="20" /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="line-height:15px!important;padding-top:15px;" align="center">
+                            <a class="button button-green" href="javascript:;" id="confirm"><span>确认</span></a>
+                        </td>
+                        <td style="line-height:15px!important;padding-top:15px;" align="center">
+                            <a class="button button-withe" href="javascript:;" style="display:none;" id="unconfirm"><span>确认</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="theme-popover-mask2"></div>
+    <!--弹层-->
+    <!--弹层-->
+    <div class="theme-popover3" style="width:1000px; margin-left:-500px;">
+        <div class="theme-poptit3">
+            <a href="javascript:;" title="关闭" class="close">×</a>
+            <h3><center>企业信用等级修改记录</center></h3>
+        </div>
+        <div class="theme-popbod3" style="line-height: 30px;">
+            <!--数据表格 begin-->
+            <div class="container" id="tab2">
+                <section>
+                    <table id="logTable" class="display" cellspacing="0" width="100%" style="text-align:center;">
+                        <thead>
+                            <tr>
+                                <th width="3%">序号</th>
+                                <th width="15%">纳税人识别号</th>
+                                <th width="7%">信用级别</th>
+                                <th width="7%">启用标志</th>
+                                <th width="10%">操作人员代码</th>
+                                <th width="20%">操作类型</th>
+                                <th width="15%">操作时间</th>
+                                <th width="13%">原始纳税人识别号</th>
+                                <th width="10%">备注</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </section>
+            </div>
+            <!--数据表格 end-->
+        </div>
+    </div>
+    <div class="theme-popover-mask3"></div>
+    <!--弹层-->
+    <!--公告-->
+    <div class="theme-popover4" style="width:1000px; margin-left:-500px;top:40px;">
+        <div class="theme-poptit4">
+            <a href="javascript:;" title="关闭" class="close">关闭</a>
+            <h2><center>增值税发票查询平台V2.0.00升级内容说明</center></h2>
+        </div>
+        <div class="theme-popbod4" style="line-height:20px;">
+            <div class="text_p">
+                <h2>一、  发票选择确认升级内容</h2>
+                <h3>1.  调整发票选择、确认的操作时限。</h3>将纳税人确认当月用于抵扣税款或出口退税的增值税发票信息的最后时限，由当月最后1日延长至次月纳税申报期结束前2日。（例如：上月和本月申报期均为15日，当期勾选、确认时间为当月16日到次月13日）。
+                <h3>2.  将原有的每月一次确认修改为每期可多次确认。</h3>纳税人可在每个选择、确认周期内，纳税申报前，可多次进行勾选确认，已确认数据不能修改。<span style="color:red;">纳税申报后不得再进行勾选确认操作，若进行勾选确认操作，这部分勾选确认的发票将无法纳入本期申报抵扣数据中，也不能参与下期申报抵扣，为避免损失，请纳税人确认当期所有发票全部勾选确认后，再进行本期的纳税申报。</span>纳税人当日确认的数据，次日可通过“抵扣统计”查询到可抵扣数据（含勾选确认和扫描认证两类数据），并可下载所有抵扣明细数据（不限发票数量）。
+                <h3>3.  取消原有自动确认功能。</h3>发票查询平台每月最后一日不再将已勾选未确认数据进行自动确认，为了不影响当月的申报抵扣，操作员必须在勾选、确认期内对当期勾选的数据进行手工确认。
+                <h3>4.  未确认数据处理。</h3>超过可操作期，仍未确认的数据，平台将自动将已勾选未确认的数据回退为未勾选状态，视同当月未做勾选，符合抵扣的时限规则时可在下期继续进行勾选。
+                <h3>5.  增加批量勾选发票下载数据内容。</h3>在批量勾选模块的下载文件中，增加发票的销方名称、金额、税额信息。
+                <h3>6.  已确认数据的导出打印。</h3>纳税人勾选确认后，可以查询并导出当期汇总，当次确认的发票数据，以及当期历史确认的发票数据，并增加查询结果打印功能。
+                <h2>二、  平台登录升级内容</h2>
+                <h3>1.  提供兼容性浏览器。</h3>本平台在原有支持IE浏览器基础上，提供所需安装所有驱动、控件的集成专用浏览器，下载地址：</br>（1）地址1：百度云盘http://pan.baidu.com/s/1kUJwL4V； </br>
+                （2）地址2：360云盘https://yunpan.cn/OcSMkE5ngF5jQV，访问密码 31ac；</br>
+                （3）地址3：下载网址http://down.360safe.com/se/360seswdzcs.exe。</br>
+                <h3>2.  新增一键检测功能。</h3>本功能可一键检测用户浏览器金税盘驱动、税控盘驱动、证书控件等安装情况。
+                <h3>3.  新增平台密码找回功能。</h3>纳税人首次登录查询平台后，可设置平台密码和密码找回问题，密码遗忘后，可通过之前设置的密码找回问题及答案重新设置平台密码。平台密码设置后，需通过平台密码和CA密码双重密码登录查询平台。
+                <h3>4.  增加发送错误报告功能。</h3>当平台页面出现错误时，增加了“发送平台错误报告”按钮，操作员可通过点击该按钮将错误代码以邮件的形式发送至服务器端，便于运维人员进行错误排查。
+
+                <p style=" text-align:center;margin-top:10px;"><input type="checkbox" id="nextSw">&nbsp;下次不再提醒我<a href="#" id="okButton" class="button button-green"><span>确认</span></a></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="theme-popover-mask4"></div>
+    <!--公告-->
+    <script type="text/javascript">
+
+var count=1;
+var cert="";
+
+$('#version').text(VERSION);
+
+$('#password1').focus(function(){
+  var value=$(this).val();
+  var defaultValue="输入税控盘/金税盘证书密码";
+  if(value==defaultValue){
+    $('#login_pass1').hide();
+    $('#login_pass').show();
+    $('#password').focus();
+  }
+});
+
+$("#password").blur(function(){
+  var password=$("#password").val().trim();
+  if(password==""){
+    $('#login_pass1').show();
+    $('#login_pass').hide();
+  }
+});
+
+$('.theme-poptit .close').click(function(){
+  $('.theme-popover-mask').fadeOut(100);
+  $('.theme-popover').slideUp(200);
+});
+
+
+$('#submit').click(function(){
+  if(validateCertPass("password")){
+    var certPass=$('#password').val();
+    var ptPassword=$('#password2').val();
+    Login(certPass,ptPassword);
+  }
+});
+
+function validateCertPass(passId){
+  var password=$('#'+passId).val();
+  if(password==""){
+    jAlert("<div id='popup_message'>请输入税控盘/金税盘证书密码!</div>","提示信息");
+    return false;
+  }
+  return true;
+}
+
+function validatePtPass(){
+  var ptPassword=$('#password2').val();
+  if(ptPassword==""){
+    jAlert("<div id='popup_message'>请输入平台密码!</div>","提示信息");
+    return false;
+  }
+  if(ptPassword.length<6||ptPassword.length>20||checkPass(ptPassword)<2){
+    jAlert("<div id='popup_message'>平台密码不正确!</div>","提示信息");
+    return false;
+  }
+  return true;
+}
+
+function validateLogin(certPass){
+
+  $('.theme-popover-mask').fadeIn(100);
+  $('.theme-popover').slideDown(200);
+
+  $('.theme-popbod').empty();
+
+  count=1;
+  $('.theme-popbod').append('<span>'+count+'、当前浏览器为：<strong style="color:green;">'+getWebVersion()+'</strong></span><br/>');
+  count++;
+
+  //检测安全控件是否加载成功
+  if(document.all.CryptCtrl.object == null){
+    $('.theme-popbod').append('<span>'+count+'、当前浏览器加载安全控件：</span><strong style="color:red;">不成功</strong><br/>');
+    count++;
+  }else{
+    $('.theme-popbod').append('<span>'+count+'、当前浏览器加载安全控件：</span><strong style="color:green;">成功</strong><br/>');
+    count++;
+  }
+
+ //检测是否能够成功获取纳税人识别号
+  var rtn=openThisDevice(certPass);
+  if ( rtn!=0) {
+    return false;
+  }
+
+  $('.theme-popbod').append('<span>'+count+'、客户端证书密码：</span></span><strong style="color:green;">正确</strong><br/>');
+  count++;
+
+  cert=getThisCert();
+  var strRegx=/^[0-9a-zA-Z]+$/;
+  if(cert==""){
+    $('.theme-popbod').append('<span>'+count+'、读取证书信息失败，未获取到合法的纳税人信息,请重新提交请求或检查金税盘/税控盘是否插入！</span><br/>');
+    count++;
+  }else if(!strRegx.test(cert)){
+    $('.theme-popbod').append('<span>'+count+'、读取到的纳税人信息（纳税人识别号：'+cert+'）不合法！请重试！</span><br/>');
+    count++;
+  }else{
+    $('.theme-popbod').append('<span>'+count+'、读取到的纳税人识别号：<strong style="color:green;">'+cert+'</strong></span><br/>');
+    count++;
+  }
+  return true;
+}
+
+function Login(certPass,ptPassword){
+
+  if(!validateLogin(certPass)){
+    return;
+  }
+
+  var rtn=openThisDevice(certPass);
+  if ( rtn!=0) {
+    return false;
+  }
+
+  rtn=MakeClientHello();
+  if (rtn!=0) {
+    return;
+  }
+  var clientHello=CryptCtrl.strResult;
+  var param1={"type":"CLIENT-HELLO","clientHello":clientHello};
+
+  $('#submit').hide();
+  $('#unsubmit').show();
+
+  $('.theme-popbod').append('<span>'+count+'、开始调用外网服务，正在进入......</span><br/>');
+  count++;
+
+  firstLogin(param1,ptPassword,function(data,info){
+    firstLogin(param1,ptPassword,function(data,info){
+      firstLogin(param1,ptPassword,function(data,info){
+        if(data=="00"){
+           jAlert_mail("<div id='popup_message'>服务器调用身份认证失败！"+info+"</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","服务器调用身份认证失败！");
+        }else if(data.responseText==""||data.responseText==undefined){
+          jAlert_mail("<div id='popup_message'>网络异常！</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","网络异常！");
+        }else{
+          jAlert_mail("<div id='popup_message'>系统异常！统一受理系统报文为:"+data.responseText+"</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","统一受理异常，报文为："+data.responseText);
+        }
+        $('.theme-poptit .close').trigger('click');
+        $('#unsubmit').hide();
+        $('#submit').show();
+      });
+    });
+  });
+}
+
+function firstLogin(param1,ptPassword,cb){
+  $.ajax({
+    type:"get",
+    url:IP+"/SbsqWW/login.do",
+    data:param1,
+    timeout:TIMEOUT,
+    dataType:"jsonp",
+    contentType:"application/json;charset=utf-8",
+    jsonp:"callback",
+    success:function(jsonData){
+      $('.theme-popbod').append('<span>'+count+'、首次访问外网服务：<strong style="color:green;">正常</strong></span><br/>');
+      count++;
+      var key1=jsonData.key1;
+
+      if(key1=="00"){
+        jAlert("<div id='popup_message'>服务器调用身份认证失败！"+jsonData.key2+" 正在重试......</div>","提示");
+        cb("00",jsonData.key2);
+      }else if(key1=="01"){
+        serverPacket=jsonData.key2;
+        serverRandom=jsonData.key3;
+        rtn = MakeClientAuthCode();
+        $('.theme-popbod').append('<span>'+count+'、第二次访问外网服务：请稍候......</span><br/>');
+        count++;
+
+        var cert=getThisCert();
+        if(!velidateNsrsbh(cert)){
+          return;
+        }
+
+        var param2={
+          "type":"CLIENT-AUTH",
+          "clientAuthCode":clientAuthCode,
+          "serverRandom":serverRandom,
+          "password":ptPassword,
+          "cert":cert
+        };
+
+        secondLogin(param2,function(data,info){
+          secondLogin(param2,function(data,info){
+            secondLogin(param2,function(data,info){
+              if(data=="00"){
+                jAlert_mail("<div id='popup_message'>登录失败！"+info+"</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","登录失败！"+info);
+              }else if(data=="98"){
+                jAlert_mail("<div id='popup_message'>网络调用异常！</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","网络调用异常！");
+              }else if(data=="99"){
+                jAlert_mail("<div id='popup_message'>网络调用超时！</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","网络调用超时！");
+              }else if(data=="101"){
+                jAlert_mail("<div id='popup_message'>数据库连接失败！</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","数据库连接失败！");
+              }else if(data.responseText==""||data.responseText==undefined){
+                jAlert_mail("<div id='popup_message'>网络异常！</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","网络异常！");
+              }else{
+                jAlert_mail("<div id='popup_message'>网络异常:"+data.responseText+"</div>","提示",PROVINCE+"(纳税人识别号："+cert+")登录失败","网络异常:"+data.responseText);
+              }
+              $('.theme-poptit .close').trigger('click');
+              $('#unsubmit').hide();
+              $('#submit').show();
+            });
+          });
+        });
+      }else{
+        jAlert("<div id='popup_message'>系统异常，错误代码为:"+key1+"</div>","提示");
+      }
+      $('.theme-poptit .close').trigger('click');
+      $('#unsubmit').hide();
+      $('#submit').show();
+    },error:function(data){
+      if(data.responseText==""||data.responseText==undefined){
+        jAlert("<div id='popup_message'>网络异常，正在重试......</div>","提示");
+      }else{
+        jAlert("<div id='popup_message'>系统异常，正在重试......，统一受理系统报文为:"+data.responseText+"</div>","提示");
+      }
+      cb(data);
+    }
+  });
+}
+
+function secondLogin(param2,cb){
+  $.ajax({
+    type:"get",
+    url:IP+"/SbsqWW/login.do",
+    data:param2,
+    dataType:"jsonp",
+    timeout:TIMEOUT,
+    contentType:"application/json;charset=utf-8",
+    jsonp:"callback",
+    success:function(backData){
+
+      var rezt=backData.key1;
+
+      if(rezt=="00"){
+        jAlert("<div id='popup_message'>登录失败！"+backData.key2+" 正在重试......</div>","提示");
+        cb("00",backData.key2);
+      }else if(rezt=="01"){
+        var nsrmc=decodeURI(backData.key3,"UTF-8");
+        var dqrq=backData.key4;
+        if(dqrq==""){
+          dqrq=getDqrq();
+        }
+        setCookie("dqrq",dqrq,seconds);
+        setCookie("nsrmc",nsrmc,seconds);
+        clearCookie("token");
+        setCookie("token",backData.key2,seconds);
+
+        window.location.href="config.html";
+
+      }else if(rezt=="02"){
+        var nsrsbh=backData.key3;
+        jAlert("<div id='popup_message'>纳税人档案（税号："+nsrsbh+"）信息不存在！<br/>请确认本企业是否属于取消认证政策的纳税人。<br/>如是，则请联系主管税务机关进行核实和补录相关档案信息！</div>","提示");
+      }else if(rezt=="12"){//添加档案更新日志
+        clearCookie("token");
+        setCookie("token",backData.key2,seconds);
+        var nsrsbh=backData.key3;
+        var xyjb=backData.key5;
+        if(xyjb==""){
+          xyjb ="未设置"
+        }
+        jAlert("<div id='popup_message'>纳税人档案信息为（税号："+nsrsbh+"；信用等级："+xyjb+"）！<br/>请确认本企业是否属于取消认证政策的纳税人。<br/>如是，则请联系主管税务机关进行核实和修改相关档案信息！<br/><a href='#' style='color:#bbb;' class='theme-xinyong' onclick='showNsrxyxg();'><span>企业信用等级修改记录</span></a></div>","提示");
+      }else if(rezt=="03"){
+        var token=backData.key2;
+        var nsrmc=decodeURI(backData.key3,"UTF-8");
+        var dqrq=backData.key4;
+        setCookie("dqrq",dqrq,seconds);
+        setCookie("nsrmc",nsrmc,seconds);
+        setCookie("token",token,seconds);
+        window.location.href="main.html";
+      }else if(rezt=="04"){
+        jAlert("<div id='popup_message'>平台密码不正确！</div>","提示");
+      }else if(rezt=="05"){
+        jAlert("<div id='popup_message'>平台密码错误次数超过十次，请联系税务机关解锁或明天再试！</div>","提示");
+      }else if(rezt=="08"){
+        $('#ptmm').show();
+        $('#ptmmTs').show();
+        var dqrq=backData.key4;
+        setCookie("dqrq",dqrq,seconds);
+        clearCookie("token");
+        setCookie("token",backData.key2,seconds);
+      }else if(rezt=="21"){//添加档案更新日志
+        clearCookie("token");
+        setCookie("token",backData.key2,seconds);
+        jAlert("<div id='popup_message'>纳税人档案信息为(税号："+backData.key3+")档案信息存在，当前信用级别为："+backData.key4+",本平台启用状态为：未启用,无权登录此系统，请联系主管税务机关开通权限！<br/><a href='#' style='color:#bbb;' class='theme-xinyong' onclick='showNsrxyxg();'><span>企业信用等级修改记录</span></a></div>","提示");
+      }else if(rezt=="98"){
+        jAlert("<div id='popup_message'>网络调用异常，正在重试......</div>","提示");
+        cb("98");
+      }else if(rezt=="99"){
+        jAlert("<div id='popup_message'>网络调用超时，正在重试......</div>","提示");
+        cb("98");
+      }else if(rezt=="101"){
+        jAlert("<div id='popup_message'>数据库连接失败,正在重试......</div>","提示");
+      }else{
+        jAlert("<div id='popup_message'>系统异常，错误代码为:"+rezt+"</div>","提示");
+      }
+      $('.theme-poptit .close').trigger('click');
+      $('#unsubmit').hide();
+      $('#submit').show();
+    },error:function(data){
+      if(data.responseText==""||data.responseText==undefined){
+        jAlert("<div id='popup_message'>网络异常，正在重试......</div>","提示");
+      }else{
+        jAlert("<div id='popup_message'>网络异常，正在重试......,统一受理系统报文为:"+data.responseText+"</div>","提示");
+      }
+      cb(data);
+    }
+  });
+}
+
+function openThisDevice(userPin){
+  var err = 0;
+  setDeviceParam(userPin);
+  if(CryptCtrl.IsDeviceOpened()!= 0)
+  {
+    CryptCtrl.CloseDevice();
+  }
+  CryptCtrl.OpenDeviceEx(userPasswd) ;
+  if(CryptCtrl.ErrCode == 0x57)
+  {
+    CryptCtrl.OpenDeviceEx(userPasswd);
+  }
+  if(CryptCtrl.ErrCode != 0 && CryptCtrl.ErrCode != -1)
+  {
+    $('.theme-popbod').append('<span style="color:red;">'+count+'、'+CryptCtrl.ErrMsg+'</span><br/>');
+    count++;
+    return CryptCtrl.ErrCode;
+  }
+  devicePort = CryptCtrl.strContainer;
+  return CryptCtrl.ErrCode;
+}
+
+function MakeClientHello(){
+  var vbNullString = "";
+  var dwFlag = 0;
+  CryptCtrl.ClientHello(dwFlag);
+  if(CryptCtrl.ErrCode != 0){
+   $('.theme-popbod').append('<span style="color:red;">'+count+'、'+CryptCtrl.ErrMsg+'</span><br/>');
+   count++;
+   return CryptCtrl.ErrCode;
+  }
+  return CryptCtrl.ErrCode;
+}
+
+function MakeClientAuthCode(){
+  var err = 0;
+  err = openThisDevice();
+  if(err != 0) return err;
+  CryptCtrl.ClientAuth(serverPacket);
+  if(CryptCtrl.ErrCode != 0)
+  {
+    $('.theme-popbod').append('<span style="color:red;">'+count+'、'+CryptCtrl.ErrMsg+'</span><br/>');
+    count++;
+    return CryptCtrl.ErrCode;
+  }
+  clientAuthCode = CryptCtrl.strResult;
+  CryptCtrl.CloseDevice();
+  return CryptCtrl.ErrCode;
+}
+
+function getThisCert(){
+  var rtn = openThisDevice();
+  var ret = CryptCtrl.GetCertInfo("",71);
+  var error = CryptCtrl.errCode;
+  var nsrsbh = "";
+  if(error == 0){
+    nsrsbh = CryptCtrl.strResult;
+  }
+  CryptCtrl.CloseDevice();
+  return nsrsbh;
+}
+
+ $('.for_key_alert').click(function(){
+    $('.theme-popover-mask2').fadeIn(100);
+    $('.theme-popover2').slideDown(200);
+    showMMWT();
+});
+
+$('.theme-poptit2 .close').click(function(){
+  $('.theme-popover-mask2').fadeOut(100);
+  $('.theme-popover2').slideUp(200);
+});
+
+function showNsrxyxg(){
+  showModifyLog();
+}
+
+$('.theme-poptit3 .close').click(function(){
+  $('.theme-popover-mask3').fadeOut(100);
+  $('.theme-popover3').slideUp(200);
+});
+
+//弹层
+$(document).ready(function($) {
+
+  if(getCookie("XCSFXS")!='@#$%!@#'){
+    $('.theme-popover-mask4').fadeIn(100);
+    $('.theme-popover4').slideDown(200);
+  }
+
+	$('.theme-gonggao').click(function(){
+		$('.theme-popover-mask4').fadeIn(100);
+		$('.theme-popover4').slideDown(200);
+	});
+
+	$('.theme-poptit4 .close').click(function(){
+		$('.theme-popover-mask4').fadeOut(100);
+		$('.theme-popover4').slideUp(200);
+	});
+
+	$('#okButton').click(function(){
+    $('.theme-popover-mask4').fadeOut(100);
+    $('.theme-popover4').slideUp(200);
+    if($('#nextSw').is(":checked")==true){
+      setCookie("XCSFXS","@#$%!@#",10*24*60*60*1000);
+    }
+	});
+
+  document.onkeydown = function(e){
+    var ev = document.all ? window.event : e;
+    if(ev.keyCode==13) {
+      $('#submit').trigger('click');
+     }
+  }
+});
+
+function showMMWT(){
+  var token=getCookie("token");
+  var cert=getCert();
+  if(!velidateNsrsbh(cert)){
+    return;
+  }
+  $.ajax({
+      type: "get",
+      url: IP+"/SbsqWW/nsrmmxx.do",
+      data:{"cert":cert,"token":token},
+      dataType: "jsonp",
+      jsonp: "callback",
+      success: function(jsonData) {
+        var key1=jsonData.key1;
+        if(key1=="00"){
+          jAlert("<div id='popup_message'>数据库异常！</div>","提示");
+          return;
+        }else if (key1=="01") {
+          var token=jsonData.key3;
+
+          clearCookie("token");
+          setCookie("token",token,seconds);
+
+          $('#question').val(decodeURI(jsonData.key2,"UTF-8"));
+
+        }else if(key1='09'){
+          jAlert("<div id='popup_message'>系统异常，请重新提交请求或重新登陆！</div>","提示");
+           return;
+
+        }else if(key1=="10"){
+          jAlert("<div id='popup_message'>超过最大请求数！</div>","提示");
+          return;
+        }else{
+         jAlert("<div id='popup_message'>系统异常，错误代码为:"+key1+"</div>","提示");
+         return;
+        }
+
+      },error:function(data){
+        jAlert("<div id='popup_message'>统一受理系统异常:"+data.responseText+"</div>","提示");
+        return;
+      }
+    });
+}
+
+$('#confirm').click(function(){
+
+  if($('#answer').val()!=""){
+    var answer=encodeURI($('#answer').val(),"UTF-8");
+    token=getCookie("token");
+
+    var cert=getCert();
+    if(!velidateNsrsbh(cert)){
+      return;
+    }
+
+    $.ajax({
+      type: "get",
+      url: IP+"/SbsqWW/nsrmmsc.do",
+      data:{"cert":cert,"token":token,"answer":answer},
+      dataType: "jsonp",
+      jsonp: "callback",
+      success: function(jsonData) {
+        var key1=jsonData.key1;
+        if(key1=="00"){
+          jAlert("<div id='popup_message'>答案错误！</div>","提示");
+          return;
+        }else if (key1=="01") {
+          jAlert("<div id='popup_message'>平台密码已成功取消，如需要，请登录平台后重新设置平台密码！</div>","提示");
+          var token=jsonData.key2;
+          clearCookie("token");
+          setCookie("token",token,seconds);
+          // window.location.href="index.html";
+        }else if(key1='09'){
+          jAlert("<div id='popup_message'>系统异常，请重新提交请求或重新登陆！</div>","提示");
+           return;
+        }else if(key1=="10"){
+          jAlert("<div id='popup_message'>超过最大请求数！</div>","提示");
+          return;
+        }else{
+         jAlert("<div id='popup_message'>系统异常，错误代码为:"+key1+"</div>","提示");
+         return;
+        }
+
+        $('.theme-poptit2 .close').trigger('click');
+      },error:function(data){
+        jAlert("<div id='popup_message'>统一受理系统异常:"+data.responseText+"</div>","提示");
+        return;
+      }
+    });
+  }
+});
+
+
+
+    </script>
+</body>
+</html>

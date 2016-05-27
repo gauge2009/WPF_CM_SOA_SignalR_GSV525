@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A8A7E64-7D11-40E5-99E3-BE92C3EEB6C2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alayaz.SOA.IService.TestClient</RootNamespace>
+    <AssemblyName>Alayaz.SOA.IService.TestClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="JR.Common">
+      <HintPath>..\dll\JR.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="JR.Common.AppFabric">
+      <HintPath>..\dll\JR.Common.AppFabric.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ImpInvServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RemoteServiceHostByConsoleRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RemoteServiceHostByWinServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceProxy\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceRefConsole\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Alayaz.SOA.Service.ViewModel.ImportInvoiceListDTO.datasource" />
+    <None Include="Service References\ImpInvServiceProxy\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImpInvServiceProxy\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImpInvServiceProxy\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ImpInvServiceProxy\SyncImportInvoiceService.wsdl" />
+    <None Include="Service References\RemoteServiceHostByConsoleRef\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\SyncImportInvoiceService.wsdl" />
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\SyncImportInvoiceService.wsdl" />
+    <None Include="Service References\ServiceProxy\FileReaderService1.wsdl" />
+    <None Include="Service References\ServiceProxy\mex1.wsdl" />
+    <None Include="Service References\ServiceProxy\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceProxy\mex21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRefConsole\FileReaderService.wsdl" />
+    <None Include="Service References\ServiceRefConsole\mex.wsdl" />
+    <None Include="Service References\ServiceRefConsole\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRefConsole\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ImpInvServiceProxy\" />
+    <WCFMetadataStorage Include="Service References\RemoteServiceHostByConsoleRef\" />
+    <WCFMetadataStorage Include="Service References\RemoteServiceHostByWinServiceRef\" />
+    <WCFMetadataStorage Include="Service References\ServiceProxy\" />
+    <WCFMetadataStorage Include="Service References\ServiceRefConsole\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRefConsole\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRefConsole\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceRefConsole\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImpInvServiceProxy\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImpInvServiceProxy\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ImpInvServiceProxy\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alayaz.SOA.IService\Alayaz.SOA.IService.csproj">
+      <Project>{3022c653-f4c9-4a34-a0e0-9bcb3b4b7879}</Project>
+      <Name>Alayaz.SOA.IService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alayaz.SOA.Service.ViewModel\Alayaz.SOA.Service.ViewModel.csproj">
+      <Project>{f025952b-88c7-4ad4-aba8-dc2b9834d189}</Project>
+      <Name>Alayaz.SOA.Service.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByConsoleRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RemoteServiceHostByWinServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!--login_header begin-->
+    <DIV id=login_header style="MARGIN-TOP: -10px">
+        <DIV class="logo2 clearfix">
+            <A class=floatL href="#" onFocus="undefined">
+                <IMG src="images/logo2.gif">
+            </A> <SPAN class=floatR style="MARGIN-TOP: 40px">
+                <A href="cjwt.html" target=_blank onFocus="undefined"><SPAN class=color_3>常见问题</SPAN></A>
+            </SPAN>
+        </DIV>
+    </DIV><!--login_header end--><!--login_main begin edit by 20160303-->
+    <DIV id=login_main>
+        <DIV class=login_main1>
+            <DIV class=login_box>
+                <DIV class=mbbox>
+                    <UL>
+                        <LI onclick="setTab('mb',2,2)" id=mb2 class=hover style="WIDTH: 330px">系统登录 </LI>
+                    </UL>
+                </DIV>
+                <DIV class=conbox>
+                    <DIV id=con_mb_2>
+                        <FORM action="">
+                            <SPAN id=login_pass1 class=login_pad>
+                                证书密码：
+                                <INPUT id=password1 class="login_input key" style="WIDTH: 180px" value=输入税控盘/金税盘证书密码 jQuery1102047602402076053113="1">
+                            </SPAN>
+                            <SPAN id=login_pass class=login_pad style="DISPLAY: none">
+                                证书密码：
+                                <INPUT id=password class="login_input key" type=password value="" jQuery1102047602402076053113="3" style="width:1px">
+                            </SPAN>
+                            <SPAN id=ptmm class=login_pad style="DISPLAY: none">
+                                平台密码：
+                                <INPUT id=password2 class="login_input password" type=password value="">
+                            </SPAN>
+                            <SPAN id=ptmmTs class=color_3 style="MARGIN-LEFT: 80px; DISPLAY: none">请输入平台密码</SPAN>
+                            <SPAN class=login_pad>
+                                <INPUT id=submit1 class=sub_1 type=button value=登录 jQuery1102047602402076053113="5"> <INPUT id=unsubmit1 class=sub_2 style="DISPLAY: none" type=button value=登录>
+                            </SPAN>
+                            <DIV class=login_word>»&nbsp;&nbsp;首次访问请下载<A id=downlod_driver href="driver.html" onFocus="undefined">驱动程序和安全控件</A><BR></DIV>
+
+                            <DIV class=login_word>
+                                <IMG style="VERTICAL-ALIGN: middle" src="images/gengxin.gif"><SPAN onclick="location='更新记录.html'" style="FONT-SIZE: 12px; COLOR: #888; MARGIN-LEFT: 5px">最近更新：2016-03-30 12:20:22</SPAN>
+                            </DIV>
+                        </FORM>
+                    </DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+    </DIV><!--login_main end--><!--footer begin-->
+    <DIV id=login_footer>
+        <DIV>国家税务总局主办 长城计算机软件与系统有限公司提供技术支持<BR>请使用IE8及以上浏览器 建议分辨率1280*768及以上<BR>版权所有：国家税务总局 版本号：1.0.02<BR></DIV>
+    </DIV><!--footer end-->
+    <SCRIPT type=text/javascript>
+
+        $('#password1').focus(function () {
+            var value = $(this).val();
+            var defaultValue = "输入税控盘/金税盘证书密码";
+            if (value == defaultValue) {
+                $('#login_pass1').hide();
+                $('#login_pass').show();
+                $('#password').focus();
+            }
+        });
+
+        $("#password").blur(function () {
+            var password = $("#password").val().trim();
+            if (password == "") {
+                $('#login_pass1').show();
+                $('#login_pass').hide();
+            }
+        });
+
+        $('#submit').click(function () {
+            if (validateCertPass("password")) {
+                var certPass = $('#password').val();
+                Login(certPass, "", 1);
+            }
+
+        });
+
+        $('#submit1').click(function () {
+            if (validateCertPass("password")) {
+                var certPass = $('#password').val();
+                var ptPassword = $('#password2').val();
+                Login(certPass, ptPassword, 2);
+            }
+
+        });
+
+        function validateCertPass(passId) {
+            var password = $('#' + passId).val();
+
+            if (password == "") {
+                jAlert("<div id='popup_message'>请输入税控盘/金税盘证书密码!</div>", "提示信息");
+                return false;
+            }
+            return true;
+        }
+
+        function validatePtPass() {
+            var ptPassword = $('#password2').val();
+
+            if (ptPassword == "") {
+                jAlert("<div id='popup_message'>请输入平台密码!</div>", "提示信息");
+                return false;
+            } if (ptPassword.length < 6 || ptPassword.length > 20 || checkPass(ptPassword) < 2) {
+                jAlert("<div id='popup_message'>平台密码不正确!</div>", "提示信息");
+                return false;
+            }
+            return true;
+
+        }
+
+
+        function Login(certPass, ptPassword, index) {
+
+            var rtn = openDevice(certPass);
+            if (rtn != 0) {
+                return;
+            }
+
+            rtn = MakeClientHello();
+            if (rtn != 0) {
+                return;
+            }
+            var clientHello = CryptCtrl.strResult;
+            var param1 = { "type": "CLIENT-HELLO", "clientHello": clientHello };
+
+            if (index == 1) {
+                $('#submit').hide();
+                $('#unsubmit').show();
+            } else {
+                $('#submit1').hide();
+                $('#unsubmit1').show();
+            }
+
+
+            $.ajax({
+                type: "post",
+                url: Ip + "/SbsqWW/login.do",
+                data: param1,
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (jsonData) {
+
+                    var key1 = jsonData.key1;
+
+                    if (key1 == "00") {
+                        jAlert("<div id='popup_message'>获取serverHello失败！" + jsonData.key2 + "</div>", "提示");
+                        return;
+                    } else if (key1 == "01") {
+                        serverPacket = jsonData.key2;
+                        serverRandom = jsonData.key3;
+                        rtn = MakeClientAuthCode();
+
+                        var param2 = {
+                            "type": "CLIENT-AUTH",
+                            "clientAuthCode": clientAuthCode, "serverRandom": serverRandom, "password": ptPassword
+                        };
+
+                        $.ajax({
+                            type: "post",
+                            url: Ip + "/SbsqWW/login.do",
+                            data: param2,
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (backData) {
+
+                                var rezt = backData.key1;
+
+                                if (rezt == "00") {
+                                    jAlert("<div id='popup_message'>登录失败！" + backData.key2 + "</div>", "提示");
+                                    return;
+                                } else if (rezt == "01") {
+                                    var token = backData.key2;
+
+                                    var nsrmc = decodeURI(backData.key3, "UTF-8");
+
+                                    var dqrq = backData.key4;
+                                    if (dqrq == "") {
+                                        dqrq = getDqrq();
+                                    }
+                                    setCookie("dqrq", dqrq, seconds);
+                                    setCookie("nsrmc", nsrmc, seconds);
+                                    clearCookie("token");
+                                    setCookie("token", token, seconds);
+
+                                    window.location.href = "config.html";
+
+                                } else if (rezt == "02") {
+                                    var nsrsbh = backData.key3;
+                                    jAlert("<div id='popup_message'>纳税人档案（税号：" + nsrsbh + "）信息不存在！<br/>请确认本企业是否属于取消认证政策的纳税人。<br/>如是，则请联系主管税务机关进行核实和补录相关档案信息！</div>", "提示");
+                                    return;
+                                } else if (rezt == "12") {
+                                    var nsrsbh = backData.key3;
+                                    var xyjb = backData.key5;
+                                    if (xyjb == "") {
+                                        xyjb = "未设置"
+                                    }
+                                    jAlert("<div id='popup_message'>纳税人档案信息为（税号：" + nsrsbh + "；信用等级：" + xyjb + "）！<br/>请确认本企业是否属于取消认证政策的纳税人。<br/>如是，则请联系主管税务机关进行核实和修改相关档案信息！</div>", "提示");
+                                    return;
+                                } else if (rezt == "03") {
+                                    var token = backData.key2;
+
+                                    var nsrmc = decodeURI(backData.key3, "UTF-8");
+                                    var dqrq = backData.key4;
+
+                                    setCookie("dqrq", dqrq, seconds);
+                                    setCookie("nsrmc", nsrmc, seconds);
+                                    clearCookie("token");
+                                    setCookie("token", token, seconds);
+                                    window.location.href = "main.html";
+                                } else if (rezt == "04") {
+                                    jAlert("<div id='popup_message'>平台密码不正确！</div>", "提示");
+                                    return;
+                                } else if (rezt == "05") {
+                                    jAlert("<div id='popup_message'>平台密码错误次数超过十次，请联系税务机关解锁或明天再试！</div>", "提示");
+                                    return;
+                                } else if (rezt == "06") {
+                                    var jxsbh = backData.key2;
+                                    jAlert("<div id='popup_message'>身份认证解析错误（错误税号：" + jxsbh + "），请稍后再试！</div>", "提示");
+                                    return;
+                                } else if (rezt == "07") {
+                                    jAlert("<div id='popup_message'>会话失效，请重新登录！</div>", "提示");
+                                    return;
+                                } else if (rezt == "08") {
+                                    document.getElementById('ptmm').style.display = "";
+                                    document.getElementById('ptmmTs').style.display = "";
+                                    // jAlert("<div id='popup_message'>请输入平台密码！</div>","提示");
+                                    return;
+                                } else if (rezt == "10") {
+                                    jAlert("<div id='popup_message'>超过最大请求数！</div>", "提示");
+                                    return;
+                                } else {
+                                    jAlert("<div id='popup_message'>系统异常，错误代码为:" + rezt + "</div>", "提示");
+                                    return;
+                                }
+                            }, error: function (data) {
+                                if (data.responseText == "" || data.responseText == undefined) {
+                                    jAlert("<div id='popup_message'>网络异常，请重试！</div>", "提示");
+                                    return;
+                                } else {
+                                    jAlert("<div id='popup_message'>网络异常:" + data.responseText + "</div>", "提示");
+                                    return;
+                                }
+                            }
+                        });
+                    } else if (key1 == "10") {
+
+                        jAlert("<div id='popup_message'>超过最大请求数！</div>", "提示");
+                        return;
+
+                    } else {
+                        jAlert("<div id='popup_message'>系统异常，错误代码为:" + key1 + "</div>", "提示");
+                        return;
+
+                    }
+                }, error: function (data) {
+                    if (data.responseText == "" || data.responseText == undefined) {
+                        jAlert("<div id='popup_message'>网络异常，请重试！</div>", "提示");
+                        return;
+                    } else {
+                        jAlert("<div id='popup_message'>系统异常，请重试！统一受理系统报文为:" + data.responseText + "</div>", "提示");
+                        return;
+                    }
+                }, complete: function () {
+                    setTimeout(function () {
+                        if (index == 1) {
+                            $('#unsubmit').hide(); $('#submit').show();
+                        } else {
+                            $('#unsubmit1').hide(); $('#submit1').show();
+                        }
+                    }
+                    , 2000);
+                }
+            });
+        }
+
+    </SCRIPT>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://biz.v.jr.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SyncImportInvoiceServiceService" targetNamespace="http://biz.v.jr.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://IBiz.v.jr.com/" location="http://192.168.8.102:16515/SOA?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="http://IBiz.v.jr.com/" name="SyncImportInvoiceServicePortBinding" type="ns1:ISyncImportInvoiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="Fetch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://IBiz.v.jr.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://IBiz.v.jr.com/" />
+      </output>
+    </operation>
+    <operation name="Inject">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://IBiz.v.jr.com/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://IBiz.v.jr.com/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SyncImportInvoiceServiceService">
+    <port name="SyncImportInvoiceServicePort" binding="tns:SyncImportInvoiceServicePortBinding">
+      <soap:address location="http://192.168.8.102:16515/SOA" />
+    </port>
+  </service>
+</definitions>

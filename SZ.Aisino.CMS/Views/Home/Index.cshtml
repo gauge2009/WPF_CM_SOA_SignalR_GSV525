@@ -1,0 +1,84 @@
+﻿
+@{
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <input id="addBtn" name="addBtn" type="button" class="btn btn-primary input-sm" value="Start Sync Import Invoices to DB" />
+             
+            <a  href="http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl">同步采集</a>
+        </div>
+    </div>
+    <div class="panel-body">
+      
+     </div>
+    <div class="panel-footer">
+    </div>
+</div>
+
+    @*http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl*@
+
+
+@section scripts{
+<script>
+    var pageHelper = {};
+    (function (o) {
+        o.GetUrl = " http://localhost:16521/alayazsoa/JustStart";
+        o.Init = function () {
+            $("#addBtn").click("click", o.OpenWindows);
+        };
+        o.OpenWindows = function (event) {
+            event.preventDefault();
+            var eventTarget = $(event.target).get(0);
+            switch (eventTarget.name) {
+                case "addBtn":
+                    o.add(event);
+                    break;
+            }
+        };
+        o.add = function (event) {
+            //var uri = o.GetUrl + "/?appName=&param=crawl";
+            var ls = {
+                appName: '',
+                param: 'crawl',  //crawl  /  confirm
+                TaxCode: '4403...',
+                PWD: '12345678',
+                Begin: '2016-05-24',
+                End: '2016-05-25',
+                Url: 'fpdk.szgs.gov.cn', //  
+        };
+            $.ajax({
+                url: o.GetUrl,
+                cache:false,
+                async:false,
+                type: "GET",
+                data: ls,
+                success: function (data) {
+                    try {
+                        var result = eval(data);
+                        alert("ok");
+                    }
+                    catch (e) {
+                        alert("oops");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus);
+
+                }
+            });
+        };
+    })(pageHelper);
+    $(function (e) {
+        pageHelper.Init();
+    });
+
+
+</script>
+ 
+}
+

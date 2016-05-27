@@ -1,0 +1,15 @@
+﻿<ac:StyleWindow x:Class="SZ.Aisino.WebCrawler.ShellView"
+        xmlns:ac="clr-namespace:Alayaz.Graph.WPF.Controls;assembly=Alayaz.Graph.WPF.Controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cal="http://www.caliburnproject.org"
+        Title="进项发票数据同步中心"
+       
+               
+        >
+
+    <Grid Background="White">
+        <ContentControl  x:Name="CoreModule" />
+    </Grid>
+
+</ac:StyleWindow>

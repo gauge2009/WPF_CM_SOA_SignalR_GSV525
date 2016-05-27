@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+    string message = (((string)TempData["Message"]) ?? "").JsSafeString();
+    bool callBack = (bool)(TempData["CallBack"] ?? false);
+
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳航天信息有限公司 - @ViewBag.Title </title>
+
+    <link href="Content/mallAxure_files/base.min.css" rel="stylesheet">
+    <link href="Content/mallAxure_files/index.min.css" rel="stylesheet">
+    <script src="Content/mallAxure_files/xmsg_ti.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/gtm")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+
+    <!--[if lt IE 8]>
+        <link href="/Content/bootstrap-ie7.css" rel="stylesheet">
+    <![endif]-->
+
+</head>
+<body id="center">
+     <div class="content">
+ 
+        <div class="bodyContainer clearfix col-lg-12" style="margin-left:-15px;margin-top:-25px">
+            @RenderBody()
+        </div>
+     </div>
+ 
+
+    @RenderSection("prescripts", required: false)
+    @Scripts.Render("~/bundles/common")
+ 
+    @RenderSection("scripts", required: true)
+
+
+
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        if (!callBack)
+        {
+            <script>
+                alert("@message");
+            </script>
+        }
+        else
+        {
+            <script type='text/javascript'>
+                JR.ColorBox.Alert("tips", LangHelper[LangHelper.Lang].AlertTitle, "@message", null, false, null, LangHelper[LangHelper.Lang].Close,
+                    function () {
+                        $(function () {
+                            setTimeout(function () {
+                                JR.doCallBack();
+                            }, 500);
+                        });
+                    }
+                );
+            </script>
+        }
+    }
+    <script>
+        var mainHelper = {};
+        (function (o) {
+            o.Init = function () {
+                $('.nighMenu').mouseenter(function (e) {
+
+                    $(this).animate({
+                        left: '-15px',
+                        // opacity: '0.5',
+                    });
+
+                });
+                $('.nighMenu').mouseleave(function (e) {
+
+                    $(this).animate({
+                        left: '0px',
+                        // opacity: '1',
+                    });
+                });
+            };
+
+        })(mainHelper);
+
+        $(function (e) {
+
+            mainHelper.Init();
+
+        });
+
+     </script>
+ 
+</body>
+
+ </html>

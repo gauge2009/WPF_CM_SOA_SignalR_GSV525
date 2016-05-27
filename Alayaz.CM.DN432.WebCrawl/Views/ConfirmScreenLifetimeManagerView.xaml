@@ -1,0 +1,135 @@
+<ac:StyleWindow
+             xmlns:ac="clr-namespace:Alayaz.Graph.WPF.Controls;assembly=Alayaz.Graph.WPF.Controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cal="http://www.caliburnproject.org"  
+        xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell" x:Class="Alayaz.CM.DN432.WebCrawl.Views.ConfirmScreenLifetimeManagerView"  
+        Title="{Binding WindowTitle}"
+        Icon="/Alayaz.CM.DN432.WebCrawl;component/imgs/user.png"
+        Width="1050" Height="700" 
+                   >
+    <!--  Width="{Binding WidthVal}" Height="{Binding HeightVal}" 
+    Style="{DynamicResource AlayazStyleWindowStyle}"  
+    cal:Message.Attach="[Event Loaded]= [Action InitSource($source,$view)];]"-->
+
+    <ac:StyleWindow.Resources>
+
+        <SolidColorBrush Color="#FF10a8ab" x:Key="StyleWindow.TitleBackground" />
+
+        <ControlTemplate x:Key="MiniButton" TargetType="{x:Type Button}">
+            <Grid x:Name="MB" Background="Transparent">
+                <Path Data="F1M0,6L0,9 9,9 9,6 0,6z"  
+					SnapsToDevicePixels="True"
+					Fill="White" 
+					HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="MB" Value="#99333333"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="MB" Value="#FF333333"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="MB">
+                            <Path Data="F1M0,0L2,0 5,3 8,0 10,0 6,4 10,8 8,8 5,5 2,8 0,8 4,4 0,0z"  
+								Fill="White" SnapsToDevicePixels="True" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="MB" Value="#99333333"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="MB" Value="#FF333333"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="AlayazStyleWindowStyle" TargetType="{x:Type ac:StyleWindow}">
+            <Setter Property="AllowsTransparency" Value="true" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="WindowStyle" Value="None" />
+            <Setter Property="Custom:WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <Custom:WindowChrome ResizeBorderThickness="5"
+						CaptionHeight="30"
+						GlassFrameThickness="3"
+                              />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ac:StyleWindow}">
+                        <Border Background="{TemplateBinding Background}"
+							BorderBrush="#66333333"
+							BorderThickness="1"
+                           >
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" x:Name="ROW0" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+
+
+                                <Border Height="1" Grid.Row="0" Background="{StaticResource StyleWindow.TitleBackground}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition x:Name="COLICON" Width="auto" />
+                                            <ColumnDefinition x:Name="COLTITLE" />
+                                            <ColumnDefinition x:Name="COLBTNS" Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0" Margin="3">
+                                            <Image Source="{TemplateBinding Icon}" Grid.Column="0" />
+                                        </Border>
+                                        <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Padding="5" Foreground="White" FontWeight="Bold" />
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Margin="0" x:Name="MiniButton" Width="34" Template="{StaticResource MiniButton}" Custom:WindowChrome.IsHitTestVisibleInChrome="True" Command="{x:Static Custom:SystemCommands.MinimizeWindowCommand}" />
+                                            <Button x:Name="CloseButton" Width="34" Style="{StaticResource CloseButton}" Custom:WindowChrome.IsHitTestVisibleInChrome="True" Command="{x:Static Custom:SystemCommands.CloseWindowCommand}" />
+
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="Black">
+                                    <Border.Effect>
+                                        <BlurEffect />
+                                    </Border.Effect>
+                                </Border>
+
+                                <Border Grid.Row="1" Background="White">
+                                    <AdornerDecorator>
+                                        <ContentPresenter />
+                                    </AdornerDecorator>
+                                </Border>
+
+                            </Grid>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </ac:StyleWindow.Resources>
+
+
+    <Grid Background="Transparent" >
+        <ContentControl x:Name="ActiveItem" />
+    </Grid>
+
+</ac:StyleWindow> 
+ 

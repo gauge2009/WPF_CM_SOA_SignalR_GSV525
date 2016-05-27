@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!--header begin-->
+    <DIV id=header></DIV><!--header end--><!--main begin-->
+    <DIV id=main>
+        <DIV class="position pad10 pad50_l">当前位置：<A href="main.html" onFocus="undefined">首页</A> - <SPAN class=color_2>发票勾选</SPAN></DIV><!--区域 begin--><BR><BR>
+        <DIV class="T-title clearfix">当前月份：<SPAN id=ssq class=color_3>2016年5月</SPAN> <SPAN class="floatR_btn font_1"><A onclick=searchInfo(); id=search class="button button-blue" href="#" onFocus="undefined"><SPAN>查询</SPAN></A> <A id=unsearch class="button button-white" style="DISPLAY: none" href="#" onFocus="undefined"><SPAN>查询</SPAN></A> </SPAN></DIV>
+        <DIV class=height40><SPAN class=pad15_r>发票代码：<INPUT id=fpdm class=input_1></SPAN> <SPAN class=pad15_r>发票号码：<INPUT id=fphm class=input_1></SPAN> <SPAN class=pad15_r>开票日期： <LABEL><SPAN id=datetimepicker1 style="WIDTH: 130px" jQuery110208261096521133053="109"><INPUT id=sjq class="input_1 add-on" style="WIDTH: 110px" value=2016-04-01 data-format="yyyy-MM-dd" jQuery110208261096521133053="1"> </SPAN>- <SPAN id=datetimepicker2 jQuery110208261096521133053="114"><INPUT id=sjz class="input_1 add-on" style="WIDTH: 110px" value=2016-05-25 data-format="yyyy-MM-dd" jQuery110208261096521133053="3"> </SPAN></LABEL></SPAN><SPAN class=pad15_r>销方税号：<INPUT id=xfsbh class=input_1 style="WIDTH: 200px"></SPAN> <BR><SPAN id=fply_flag class=pad15_r>发票来源： <LABEL class=pad30_r><INPUT id=fply1 type=radio value=0 name=fply> 全部</LABEL> <LABEL class=pad30_r><INPUT id=fply1 CHECKED type=radio value=1 name=fply> 底账系统</LABEL> <LABEL class=pad30_r><INPUT id=fply2 type=radio value=2 name=fply> 认证系统</LABEL> </SPAN><BR><SPAN class=pad15_r>勾选标志： <LABEL class=pad30_r><INPUT id=hxzt0 CHECKED type=checkbox value=0 name=hxzt jQuery110208261096521133053="5"> 未勾选</LABEL> <LABEL class=pad30_r><INPUT id=hxzt1 type=checkbox value=1 name=hxzt jQuery110208261096521133053="7"> 已勾选</LABEL> </SPAN></DIV><!--区域 end--><!--区域 begin-->
+        <DIV class="T-title clearfix"><SPAN class=floatL>发票勾选</SPAN></DIV>
+        <CENTER id=load style="DISPLAY: none">
+            <IMG src="images/loadding.gif">
+            <P class=font_2 style="MARGIN-TOP: -120px">正在处理，请稍候...</P>
+        </CENTER><!--数据表格 begin-->
+        <DIV class=container>
+            <SECTION>
+                <DIV id=example_wrapper class="dataTables_wrapper no-footer" class="dataTables_wrapper no-footer">
+                    <DIV id=example_length class=dataTables_length><LABEL>每页显示 <SELECT aria-controls=example class=" input_1" style="WIDTH: 150px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px" jQuery110208261096521133053="30"><OPTION selected value=10>10</OPTION><OPTION value=15>15</OPTION><OPTION value=20>20</OPTION></SELECT> 条记录</LABEL></DIV>
+                    <DIV id=example_filter class=dataTables_filter class="dataTables_filter"><LABEL>搜索:<INPUT aria-controls=example class=" input_1" jQuery110208261096521133053="33" placeholder></LABEL></DIV>
+                    <TABLE role=grid aria-describedby=example_info id=example class="display dataTable no-footer" style="WIDTH: 100%; TEXT-ALIGN: center" cellSpacing=0 width="100%" jQuery110208261096521133053="14">
+                        <THEAD>
+                            <TR role=row>
+                                <TH class="checkboxes sorting_asc" style="WIDTH: 64px" jQuery110208261096521133053="15" rowspan="1" colspan="1" aria-label="勾选"><INPUT id=a1 type=checkbox value="" name=checkAll jQuery110208261096521133053="9">勾选</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 80px !important" jQuery110208261096521133053="17" tabindex="0" rowspan="1" colspan="1" aria-label="发票代码: activate to sort column ascending">发票代码</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 80px !important" jQuery110208261096521133053="18" tabindex="0" rowspan="1" colspan="1" aria-label="发票号码: activate to sort column ascending">发票号码</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 60px !important" jQuery110208261096521133053="19" tabindex="0" rowspan="1" colspan="1" aria-label="开票日期: activate to sort column ascending">开票日期</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 100px !important" jQuery110208261096521133053="20" tabindex="0" rowspan="1" colspan="1" aria-label="销方税号: activate to sort column ascending">销方税号</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 60px !important" jQuery110208261096521133053="21" tabindex="0" rowspan="1" colspan="1" aria-label="金额: activate to sort column ascending">金额</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 60px !important" jQuery110208261096521133053="22" tabindex="0" rowspan="1" colspan="1" aria-label="税额: activate to sort column ascending">税额</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 50px !important" jQuery110208261096521133053="26" tabindex="0" rowspan="1" colspan="1" aria-label="来源: activate to sort column ascending">来源</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 70px !important" jQuery110208261096521133053="27" tabindex="0" rowspan="1" colspan="1" aria-label="发票状态: activate to sort column ascending">发票状态</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 60px !important" jQuery110208261096521133053="28" tabindex="0" rowspan="1" colspan="1" aria-label="勾选标志: activate to sort column ascending">勾选标志</TH>
+                                <TH tabIndex=0 aria-controls=example class=sorting style="WIDTH: 60px !important" jQuery110208261096521133053="29" tabindex="0" rowspan="1" colspan="1" aria-label="操作时间: activate to sort column ascending">操作时间</TH>
+                            </TR>
+                        </THEAD>
+                        <TBODY>
+                            <TR class=odd class="odd">
+                                <TD class=dataTables_empty vAlign=top colSpan=11 class="dataTables_empty" colspan="11">没找到记录</TD>
+                            </TR>
+                        </TBODY>
+                    </TABLE>
+                    <DIV role=status id=example_info aria-live=polite class=dataTables_info class="dataTables_info">显示 0 到 0 共 0 条记录</DIV>
+                    <DIV id=example_paginate class="dataTables_paginate paging_simple_numbers"><A tabIndex=0 aria-controls=example id=example_previous class="paginate_button previous disabled" onFocus="undefined" jQuery110208261096521133053="94" class="paginate_button previous disabled" tabindex="0" data-dt-idx="0">上一页</A><SPAN></SPAN><A tabIndex=0 aria-controls=example id=example_next class="paginate_button next disabled" onFocus="undefined" jQuery110208261096521133053="98" class="paginate_button next disabled" tabindex="0" data-dt-idx="1">下一页</A></DIV>
+                </DIV>
+            </SECTION>
+        </DIV><!--数据表格 end-->
+        <DIV class="tips color_3">注：每月在“确认勾选”菜单中确认之前可以随时对发票进行勾选或者撤销勾选操作。</DIV><!--弹层 begin-->
+        <DIV class=text-center style="CLEAR: both"><A onclick=confirmSub(); id=sub class="button button-red" href="javascript:void(0);" onFocus="undefined"><SPAN>保存</SPAN></A> </DIV><!--区域 end-->
+    </DIV><!--main end--><!--footer begin-->
+    <DIV id=footer></DIV><!--footer end-->
+    <SCRIPT type=text/javascript>
+        var indexSet = [];
+        var newZtSet = [];
+
+        var oldResult = [];
+
+        var token = getCookie("token");
+
+        $(document).ready(function () {
+
+            var nsrmc = getCookie("nsrmc");
+            $('#nsrmc').text(nsrmc);
+            setCookie("nsrmc", nsrmc, seconds);
+
+            dataset = [];
+            loadHxData(dataset);
+
+            var dqrq = getCookie("dqrq");
+            setCookie("dqrq", dqrq, seconds);
+
+            if (dqrq == "") {
+                $('#sjq').val(getNowDate(1));
+                $('#sjz').val(getNowDate(0));
+            } else {
+                $('#sjq').val(getXtsj(dqrq, 1));
+                $('#sjz').val(getXtsj(dqrq, 0));
+            }
+
+            $('#datetimepicker1').datetimepicker({
+                pickTime: false
+            });
+
+            $('#datetimepicker2').datetimepicker({
+                pickTime: false
+            });
+
+            $('#ssq').text(getDqSsq(dqrq));
+
+            var cert = getCert();
+            var strRegx = /^[0-9a-zA-Z]+$/;
+            if (cert == "") {
+                jAlert("<div id='popup_message'>读取证书信息失败，未获取到合法的纳税人信息,请重新提交请求或检查金税盘/税控盘是否插入！</div>", "提示");
+                return;
+            } else if (!strRegx.test(cert)) {
+                jAlert("<div id='popup_message'>读取到的纳税人信息（纳税人识别号：" + cert + "）不合法！请重试</div>", "提示");
+                return;
+            }
+
+            var param = { "flag": "Y", "cert": cert, "token": token };
+
+            $.ajax({
+                type: "post",
+                url: Ip + "/SbsqWW/fpcx.do",
+                dataType: "jsonp",
+                data: param,
+                jsonp: "callback",
+                success: function (jsonData) {
+
+                    var key1 = jsonData.key1;
+                    var key2 = jsonData.key2;
+                    if (key1 == "01") {
+                        token = jsonData.key2;
+                        clearCookie("token");
+                        setCookie("token", token, seconds);
+
+                    } else if (key1 == '09') {
+                        jAlert("<div id='popup_message'>会话已超时，请重新登陆！</div>", "提示");
+                        return;
+
+                    } else if (key1 == "10") {
+                        jAlert("<div id='popup_message'>超过最大请求数！</div>", "提示");
+                        return;
+                    }
+                }, error: function (data) {
+                    if (data.responseText == "" || data.responseText == undefined) {
+                        jAlert("<div id='popup_message'>网络异常，请重试！</div>", "提示");
+                        return;
+                    } else {
+                        jAlert("<div id='popup_message'>系统异常，请重试！统一受理系统报文为:" + data.responseText + "</div>", "提示");
+                        return;
+                    }
+                }
+            });
+
+        });
+
+        $("#sjq").bind('keyup', function (k, v) {
+            $('#sjq').html();
+        });
+
+        $("#sjz").bind('keyup', function (k, v) {
+            $('#sjz').html();
+        });
+
+        function searchInfo() {
+
+            var fphm = $('#fphm').val();
+            var fpdm = $('#fpdm').val();
+            var xfsbh = $('#xfsbh').val();
+
+            var kprq_q = $('#sjq').val();
+            var kprq_z = $('#sjz').val();
+
+            var hxzt = getHxzt();
+            var fply = getFply();
+
+
+            var cert = getCert();
+            var strRegx = /^[0-9a-zA-Z]+$/;
+            if (cert == "") {
+                jAlert("<div id='popup_message'>读取证书信息失败，未获取到合法的纳税人信息,请重新提交请求或检查金税盘/税控盘是否插入！</div>", "提示");
+                return;
+            } else if (!strRegx.test(cert)) {
+                jAlert("<div id='popup_message'>读取到的纳税人信息（纳税人识别号：" + cert + "）不合法！请重试</div>", "提示");
+                return;
+            }
+
+
+            var json = { "kprq_q": kprq_q, "kprq_z": kprq_z, "fphm": fphm, "fpdm": fpdm, "xfsbh": xfsbh, "fpzt": "(0)", "fply": fply, "hxzt": hxzt, "cert": cert, "token": token };
+
+            $('#search').hide();
+            $('#sub').hide();
+            $('#unsearch').show();
+            $('.container').hide();
+            $('#load').show();
+
+            $.ajax({
+                type: "post",
+                url: Ip + "/SbsqWW/fpcx.do",
+                dataType: "jsonp",
+                data: json,
+                jsonp: "callback",
+                success: function (jsonData) {
+
+                    if (jsonData === undefined) {
+                        $('#load').hide();
+                        $('.container').show();
+                        dataset = [];
+                        loadHxData(dataset);
+                    } else {
+                        var key1 = jsonData.key1;
+                        var key2 = jsonData.key2;
+                        if (key1 == "00") {
+                            jAlert("<div id='popup_message'>查询失败！" + key2 + "</div>", "提示");
+                        } else if (key1 == "01") {
+                            $('#load').hide();
+                            $('.container').show();
+                            if (key2 != "") {
+                                dataset = [];
+                                var list1 = key2.split(';');
+                                var size = list1.length;
+                                for (var i = 0; i < size; i++) {
+                                    var elearr = list1[i].split('=');
+                                    dataset.push(createDateSet(elearr));
+                                }
+                                loadHxData(dataset);
+
+                                var key4 = jsonData.key4;
+                                var key7 = jsonData.key7;
+                                if (key4 < key7) {
+                                    jAlert("<div id='popup_message'>查询结果共计" + key7 + "条，只显示前" + key4 + "条！</div>", "提示");
+                                }
+
+                            } else {
+                                dataset = [];
+                                loadHxData(dataset);
+                                jAlert("<div id='popup_message'>没有符合条件的记录！</div>", "提示");
+                            }
+
+                            token = jsonData.key5;
+                            clearCookie("token");
+                            setCookie("token", token, seconds);
+
+                            var key6 = jsonData.key6;
+                            if (key6 == "01" && key2 != "") {
+                                $('#sub').show();
+                            }
+
+                        } else if (key1 = '09') {
+                            jAlert("<div id='popup_message'>会话已超时，请重新登陆！</div>", "提示");
+                        } else if (key1 == "10") {
+                            jAlert("<div id='popup_message'>超过最大请求数！</div>", "提示");
+                            return;
+                        } else if (key1 == "20") {
+                            jAlert("<div id='popup_message'>网络异常，提交失败，请重试！</div>", "提示");
+                            return;
+                        }
+                        else {
+                            jAlert("<div id='popup_message'>系统异常，错误代码为:" + key1 + "</div>", "提示");
+                            return;
+                        }
+                    }
+
+                }, error: function (data) {
+                    if (data.responseText == "" || data.responseText == undefined) {
+                        jAlert("<div id='popup_message'>网络异常，请重试！</div>", "提示");
+                        return;
+                    } else {
+                        jAlert("<div id='popup_message'>系统异常，请重试！统一受理系统报文为:" + data.responseText + "</div>", "提示");
+                        return;
+                    }
+                }, complete: function () { setTimeout(function () { $('#unsearch').hide(); $('#search').show(); }, 2000); }
+            });
+        }
+
+        $('#hxzt0').click(function () {
+            if ($(this).is(":checked") == false && $('#hxzt1').is(":checked") == false) {
+                $(this).prop("checked", true);
+            }
+        });
+
+        $('#hxzt1').click(function () {
+            if ($(this).is(":checked") == false && $('#hxzt0').is(":checked") == false) {
+                $(this).prop("checked", true);
+            }
+        });
+
+        function getHxzt() {
+            var hxztValue = "";
+            $('input[type=checkbox][name=hxzt]').each(function () {
+                if ($(this).is(":checked") == true) {
+                    hxztValue += "'" + $(this).val() + "'";
+                    hxztValue += ",";
+                }
+            });
+            if (hxztValue != "") {
+                hxztValue = hxztValue.substring(0, hxztValue.length - 1);
+                hxztValue = "(" + hxztValue + ")";
+            }
+            return hxztValue;
+        }
+
+        function getFply() {
+            var fplyValue = "";
+            $('input[type=radio][name=fply]').each(function () {
+                if ($(this).is(":checked") == true) {
+                    fplyValue += $(this).val();
+                }
+            });
+            return fplyValue;
+        }
+
+        $('#a1').click(function () {
+            if ($(this).is(":checked") == true) {
+                $("input[name='checkbox1']").each(function () {
+                    if ($(this).is(":disabled") == false) {
+                        $(this).prop("checked", true);
+                        $(this).val("1");
+                    }
+                });
+            } else {
+                $("input[name='checkbox1']").each(function () {
+                    if ($(this).is(":disabled") == false) {
+                        $(this).prop("checked", false);
+                        $(this).val("0");
+                    }
+                });
+            }
+
+        });
+
+        function getSubmitData() {
+            var fpdms = "";
+            var fphms = "";
+            var kprqs = "";
+            var zts = "";
+            indexSet = [];
+            newZtSet = [];
+            var table = $("#example").dataTable();
+            var object = table.fnGetData();
+            var rows = table.fnGetNodes();
+
+            var results = [];
+
+            for (var i = 0; i < object.length; i++) {
+                var checkIndex = "0";
+                if ($(rows[i]).find("input:eq(0)").val() == "1") {
+                    checkIndex = "1";
+                }
+                var oldCheck = "0";
+                if ($(rows[i]).find("td:eq(9)").html() == "已勾选") {
+                    oldCheck = "1";
+                }
+
+                if (checkIndex != oldCheck) {
+                    fpdms += $(rows[i]).find("td:eq(1)").html();
+                    fpdms += "=";
+                    fphms += $(rows[i]).find("td:eq(2)").html();
+                    fphms += "=";
+                    kprqs += $(rows[i]).find("td:eq(3)").html();
+                    kprqs += "=";
+                    zts += checkIndex;
+                    zts += "=";
+                    indexSet.push(i);
+                    newZtSet.push(checkIndex);
+                }
+            }
+            if (fpdms == "" || fphms == "" || kprqs == "" || zts == "") {
+                return null;
+            } else {
+                results.push(fpdms.substring(0, fpdms.length - 1));
+                results.push(fphms.substring(0, fphms.length - 1));
+                results.push(kprqs.substring(0, kprqs.length - 1));
+                results.push(zts.substring(0, zts.length - 1));
+                return results;
+            }
+        }
+
+        function getNewDataSet() {
+            var table = $("#example").dataTable();
+            var object = table.fnGetData();
+            var rows = table.fnGetNodes();
+            var result = [];
+            for (var i = 0; i < object.length; i++) {
+                object[i][0] = $(rows[i]).find("input:eq(0)").val();
+                result.push(object[i]);
+            }
+            return result;
+        }
+
+        function reSetZt() {
+            var table = $("#example").dataTable();
+            var temp = $("#example").DataTable().data();
+
+            for (var i = 0; i < indexSet.length; i++) {
+                temp[indexSet[i]][1] = newZtSet[i];
+            }
+
+        }
+
+        function unCheckBox() {
+            if ($('#a1').is(":checked") == true) {
+                $('#a1').prop("checked", false);
+            }
+        }
+
+        function caculateInfo() {
+            var cacuResults = [[0, 0, 0], [0, 0, 0]];
+
+            var table = $("#example").dataTable();
+            var object = table.fnGetData();
+            var rows = table.fnGetNodes();
+
+            for (var i = 0; i < object.length; i++) {
+
+                var checkIndex = "0";
+                if ($(rows[i]).find("input:eq(0)").val() == "1") {
+                    checkIndex = "1";
+                }
+                var oldCheck = "0";
+                if ($(rows[i]).find("td:eq(9)").html() == "已勾选") {
+                    oldCheck = "1";
+                }
+                if (checkIndex != oldCheck) {
+                    cacuResults[checkIndex][0] += 1;
+                    cacuResults[checkIndex][1] += parseFloat($(rows[i]).find("td:eq(5)").html());
+                    cacuResults[checkIndex][2] += parseFloat($(rows[i]).find("td:eq(6)").html());
+                }
+            }
+
+            return cacuResults;
+        }
+
+        function confirmSub() {
+            var results = caculateInfo();
+            var message = "";
+            if (results[1][0] != 0) {
+                message += "本次勾选：" + "<span style='color:red'>" + results[1][0] + "</span>" + "份，金额合计：" + "<span style='color:red'>" + getFormatYuan(results[1][1].toFixed(2)) + "</span>" + "元，税额合计：" + "<span style='color:red'>" + getFormatYuan(results[1][2].toFixed(2)) + "</span>" + "元<br/>";
+            }
+            if (results[0][0] != 0) {
+                message += "本次撤销：" + "<span style='color:red'>" + results[0][0] + "</span>" + "份，金额合计：" + "<span style='color:red'>" + getFormatYuan(results[0][1].toFixed(2)) + "</span>" + "元，税额合计：" + "<span style='color:red'>" + getFormatYuan(results[0][2].toFixed(2)) + "</span>" + "元<br/>";
+            }
+
+
+            if (message != "" && oldResult != results) {
+                jConfirm("<div id='popup_message'>" + message + "</div>", '确认信息', function (r) {
+                    if (r) {
+
+                        isSubmit();
+                    }
+                });
+            } else {
+                jAlert("<div id='popup_message'>没有可提交的数据！</div>", "提示信息");
+                return;
+            }
+        }
+
+
+        function isSubmit() {
+
+            var results = getSubmitData();
+
+            if (oldResult.length > 0) {
+                if (oldResult[0] == results[0] && oldResult[1] == results[1] && oldResult[2] == results[2] && oldResult[3] == results[3]) {
+                    jAlert("<div id='popup_message'>数据已经提交，请不要重复提交！</div>", "提示信息");
+                    return;
+                }
+            }
+
+            oldResult = results;
+
+            var param = "";
+
+            var cert = getCert();
+
+            if (cert == "") {
+                jAlert("<div id='popup_message'>读取证书信息失败，未获取到合法的纳税人信息,请重新提交请求或检查金税盘/税控盘是否插入！</div>", "提示");
+                return;
+            }
+
+            param = { "fpdm": results[0], "fphm": results[1], "kprq": results[2], "zt": results[3], "cert": cert, "token": getCookie("token") };
+
+            if (param != "") {
+                $.ajax({
+                    type: "post",
+                    url: Ip + "/SbsqWW/fpgx.do",
+                    data: param,
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    success: function (jsonData) {
+                        var key1 = jsonData.key1;
+                        if (key1 == "00") {
+                            jAlert("<div id='popup_message'>数据保存失败！</div>", "提示");
+                        }
+                        else if (key1 == "01") {
+                            reSetZt();
+                            jAlert("<div id='popup_message'>数据保存成功！</div>", "提示");
+                            oldResult = results;
+                            dataset = getNewDataSet();
+                            token = jsonData.key2;
+                            clearCookie("token");
+                            setCookie("token", token, seconds);
+                        } else if (key1 = '09') {
+                            jAlert("<div id='popup_message'>会话已超时，请重新登陆！</div>", "提示");
+
+                        } else if (key1 == "10") {
+                            jAlert("<div id='popup_message'>超过最大请求数！</div>", "提示");
+                            return;
+                        } else {
+                            jAlert("<div id='popup_message'>系统异常，错误代码为:" + key1 + "</div>", "提示");
+                            return;
+                        }
+                    }, error: function (data) {
+                        if (data.responseText == "" || data.responseText == undefined) {
+                            jAlert("<div id='popup_message'>网络异常，请重试！</div>", "提示");
+                            return;
+                        } else {
+                            jAlert("<div id='popup_message'>系统异常，请重试！统一受理系统报文为:" + data.responseText + "</div>", "提示");
+                            return;
+                        }
+                    }
+                });
+
+            }
+            unCheckBox();
+        }
+
+        function changeWindow() {
+            unCheckBox();
+        }
+
+    </SCRIPT>
+
+    <DIV class="bootstrap-datetimepicker-widget dropdown-menu" jQuery110208261096521133053="105">
+        <DIV class=datepicker>
+            <DIV class=datepicker-days style="DISPLAY: block" jQuery110208261096521133053="103">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2016年4月</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                        <TR>
+                            <TH class=dow>日</TH>
+                            <TH class=dow>一</TH>
+                            <TH class=dow>二</TH>
+                            <TH class=dow>三</TH>
+                            <TH class=dow>四</TH>
+                            <TH class=dow>五</TH>
+                            <TH class=dow>六</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD class="day old">27</TD>
+                            <TD class="day old">28</TD>
+                            <TD class="day old">29</TD>
+                            <TD class="day old">30</TD>
+                            <TD class="day old">31</TD>
+                            <TD class="day active">1</TD>
+                            <TD class=day>2</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>3</TD>
+                            <TD class=day>4</TD>
+                            <TD class=day>5</TD>
+                            <TD class=day>6</TD>
+                            <TD class=day>7</TD>
+                            <TD class=day>8</TD>
+                            <TD class=day>9</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>10</TD>
+                            <TD class=day>11</TD>
+                            <TD class=day>12</TD>
+                            <TD class=day>13</TD>
+                            <TD class=day>14</TD>
+                            <TD class=day>15</TD>
+                            <TD class=day>16</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>17</TD>
+                            <TD class=day>18</TD>
+                            <TD class=day>19</TD>
+                            <TD class=day>20</TD>
+                            <TD class=day>21</TD>
+                            <TD class=day>22</TD>
+                            <TD class=day>23</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>24</TD>
+                            <TD class=day>25</TD>
+                            <TD class=day>26</TD>
+                            <TD class=day>27</TD>
+                            <TD class=day>28</TD>
+                            <TD class=day>29</TD>
+                            <TD class=day>30</TD>
+                        </TR>
+                        <TR>
+                            <TD class="day new">1</TD>
+                            <TD class="day new">2</TD>
+                            <TD class="day new">3</TD>
+                            <TD class="day new">4</TD>
+                            <TD class="day new">5</TD>
+                            <TD class="day new">6</TD>
+                            <TD class="day new">7</TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+            <DIV class=datepicker-months style="DISPLAY: none">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2016</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD colSpan=7><SPAN class=month>1月</SPAN><SPAN class=month>2月</SPAN><SPAN class=month>3月</SPAN><SPAN class="month active">4月</SPAN><SPAN class=month>5月</SPAN><SPAN class=month>6月</SPAN><SPAN class=month>7月</SPAN><SPAN class=month>8月</SPAN><SPAN class=month>9月</SPAN><SPAN class=month>10月</SPAN><SPAN class=month>11月</SPAN><SPAN class=month>12月</SPAN></TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+            <DIV class=datepicker-years style="DISPLAY: none">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2010-2019</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD colSpan=7><SPAN class="year old">2009</SPAN><SPAN class=year>2010</SPAN><SPAN class=year>2011</SPAN><SPAN class=year>2012</SPAN><SPAN class=year>2013</SPAN><SPAN class=year>2014</SPAN><SPAN class=year>2015</SPAN><SPAN class="year active">2016</SPAN><SPAN class=year>2017</SPAN><SPAN class=year>2018</SPAN><SPAN class=year>2019</SPAN><SPAN class="year old">2020</SPAN></TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+        </DIV>
+    </DIV>
+    <DIV class="bootstrap-datetimepicker-widget dropdown-menu" jQuery110208261096521133053="113">
+        <DIV class=datepicker>
+            <DIV class=datepicker-days style="DISPLAY: block" jQuery110208261096521133053="112">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2016年5月</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                        <TR>
+                            <TH class=dow>日</TH>
+                            <TH class=dow>一</TH>
+                            <TH class=dow>二</TH>
+                            <TH class=dow>三</TH>
+                            <TH class=dow>四</TH>
+                            <TH class=dow>五</TH>
+                            <TH class=dow>六</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD class="day old">24</TD>
+                            <TD class="day old">25</TD>
+                            <TD class="day old">26</TD>
+                            <TD class="day old">27</TD>
+                            <TD class="day old">28</TD>
+                            <TD class="day old">29</TD>
+                            <TD class="day old">30</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>1</TD>
+                            <TD class=day>2</TD>
+                            <TD class=day>3</TD>
+                            <TD class=day>4</TD>
+                            <TD class=day>5</TD>
+                            <TD class=day>6</TD>
+                            <TD class=day>7</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>8</TD>
+                            <TD class=day>9</TD>
+                            <TD class=day>10</TD>
+                            <TD class=day>11</TD>
+                            <TD class=day>12</TD>
+                            <TD class=day>13</TD>
+                            <TD class=day>14</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>15</TD>
+                            <TD class=day>16</TD>
+                            <TD class=day>17</TD>
+                            <TD class=day>18</TD>
+                            <TD class=day>19</TD>
+                            <TD class=day>20</TD>
+                            <TD class=day>21</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>22</TD>
+                            <TD class=day>23</TD>
+                            <TD class=day>24</TD>
+                            <TD class="day active">25</TD>
+                            <TD class=day>26</TD>
+                            <TD class=day>27</TD>
+                            <TD class=day>28</TD>
+                        </TR>
+                        <TR>
+                            <TD class=day>29</TD>
+                            <TD class=day>30</TD>
+                            <TD class=day>31</TD>
+                            <TD class="day new">1</TD>
+                            <TD class="day new">2</TD>
+                            <TD class="day new">3</TD>
+                            <TD class="day new">4</TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+            <DIV class=datepicker-months style="DISPLAY: none">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2016</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD colSpan=7><SPAN class=month>1月</SPAN><SPAN class=month>2月</SPAN><SPAN class=month>3月</SPAN><SPAN class=month>4月</SPAN><SPAN class="month active">5月</SPAN><SPAN class=month>6月</SPAN><SPAN class=month>7月</SPAN><SPAN class=month>8月</SPAN><SPAN class=month>9月</SPAN><SPAN class=month>10月</SPAN><SPAN class=month>11月</SPAN><SPAN class=month>12月</SPAN></TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+            <DIV class=datepicker-years style="DISPLAY: none">
+                <TABLE class=table-condensed>
+                    <THEAD>
+                        <TR>
+                            <TH class=prev>‹</TH>
+                            <TH class=switch colSpan=5>2010-2019</TH>
+                            <TH class=next>›</TH>
+                        </TR>
+                    </THEAD>
+                    <TBODY>
+                        <TR>
+                            <TD colSpan=7><SPAN class="year old">2009</SPAN><SPAN class=year>2010</SPAN><SPAN class=year>2011</SPAN><SPAN class=year>2012</SPAN><SPAN class=year>2013</SPAN><SPAN class=year>2014</SPAN><SPAN class=year>2015</SPAN><SPAN class="year active">2016</SPAN><SPAN class=year>2017</SPAN><SPAN class=year>2018</SPAN><SPAN class=year>2019</SPAN><SPAN class="year old">2020</SPAN></TD>
+                        </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+        </DIV>
+    </DIV>
+</body>
+</html>

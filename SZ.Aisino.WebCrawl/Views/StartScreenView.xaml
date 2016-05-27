@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="SZ.Aisino.WebCrawl.Views.StartScreenView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ab="clr-namespace:AsNum.Common.WPF.Behaviors;assembly=AsNum.Common.WPF"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             xmlns:cm="http://www.caliburnproject.org"
+             xmlns:ac="clr-namespace:Alayaz.Graph.WPF.Controls;assembly=Alayaz.Graph.WPF.Controls"
+
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid  Name="gridStartScreen"  ac:Busy.MaskType="Adorned" 
+          ac:Busy.Show="{Binding IsBusy, Mode=TwoWay}" 
+          ac:Busy.Text="{Binding BusyText, Mode=TwoWay}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="550" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <TextBlock  Text="用户操作说明"  Grid.Row="0"  Grid.ColumnSpan="2"  TextAlignment="Center" HorizontalAlignment="Center"  FontSize="24" />
+
+        <Image  Source="{Binding ImgPath}" Stretch="Uniform"  Grid.Row="1" Grid.ColumnSpan="2"  />
+        <!--<Image  Source="pack://application:,,,/SZ.Aisino.WebCrawl;Component/imgs/fpdk_szgs_step1.png" Stretch="Uniform"  Grid.Row="1" Grid.ColumnSpan="2"  />-->
+        <!--<Image  Source="/SZ.Aisino.WebCrawl;component/Resources/fpdk_szgs_step1.png" Stretch="Fill"  />-->
+
+        <Button  Grid.Row="2" Grid.Column="0"  Content="下一步"    
+                 cm:Message.Attach="[Event Click]= [Action Next($source)]"/>
+        <Button  Grid.Row="2" Grid.Column="1"  Content="我已了解，直接使用"  
+                Name="GoForward"  />
+
+    </Grid>
+</UserControl>

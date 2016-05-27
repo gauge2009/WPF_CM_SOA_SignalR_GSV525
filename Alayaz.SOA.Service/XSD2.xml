@@ -1,0 +1,39 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel">
+<xs:complexType name="ImportInvoiceListDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="List" nillable="true" type="tns:ArrayOfImportInvoiceDTO"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="tns:ImportInvoiceResultDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ImportInvoiceListDTO" nillable="true" type="tns:ImportInvoiceListDTO"/>
+<xs:complexType name="ArrayOfImportInvoiceDTO">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="ImportInvoiceDTO" nillable="true" type="tns:ImportInvoiceDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfImportInvoiceDTO" nillable="true" type="tns:ArrayOfImportInvoiceDTO"/>
+<xs:complexType name="ImportInvoiceDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+<xs:element minOccurs="0" name="CertificateStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DeductionStatus" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="From" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="InvoiceCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="OperationTime" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SalesTaxNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SelectTag" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Tax" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ImportInvoiceDTO" nillable="true" type="tns:ImportInvoiceDTO"/>
+<xs:complexType name="ImportInvoiceResultDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Status" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ImportInvoiceResultDTO" nillable="true" type="tns:ImportInvoiceResultDTO"/>
+</xs:schema>

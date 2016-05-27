@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Alayaz.CM.DN432.WebCrawl.Views.LoginView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             xmlns:cm="http://www.caliburnproject.org"
+             xmlns:ac="clr-namespace:Alayaz.Graph.WPF.Controls;assembly=Alayaz.Graph.WPF.Controls"
+              d:DesignWidth="500"  d:DesignHeight="380"
+             >
+    <UserControl.Resources>
+        <Style x:Key="HeaderStackPanel" TargetType="{x:Type StackPanel}">
+            <Setter Property="Background" Value="#FF8BB5D2"/>
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="HeaderTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="ClipToBounds" Value="False"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="AllowDrop" Value="False"/>
+            <Setter Property="UseLayoutRounding" Value="False"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DispalyLabel" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" OpacityMask="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                                <!--<ContentPresenter.Effect>
+                                    <DropShadowEffect BlurRadius="3"/>
+                                </ContentPresenter.Effect>-->
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="AlayazPasswordBox" TargetType="{x:Type PasswordBox}">
+            <Border x:Name="border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Background="#FFFAF0D3" Width="245" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8" FontSize="24" FontWeight="Bold" TextOptions.TextHintingMode="Animated" SnapsToDevicePixels="True" BorderThickness="2" BorderBrush="#FF8E8C8C"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="AlayazButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Background="#FF4D90FE" CornerRadius="4" Padding="5">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Gold" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Orange" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray" />
+                                <Setter TargetName="Border" Property="TextBlock.Foreground" Value="#cccccc" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid  Name="gridStartScreen"  ac:Busy.MaskType="Adorned" 
+          ac:Busy.Show="{Binding IsBusy, Mode=TwoWay}" 
+          ac:Busy.Text="{Binding BusyText, Mode=TwoWay}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="2*"/>
+            <ColumnDefinition  Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <StackPanel   Grid.Row="0"  Grid.ColumnSpan="3" Style="{DynamicResource HeaderStackPanel}" >
+            <TextBlock  Text="系统登录" HorizontalAlignment="Center" Style="{DynamicResource HeaderTextBlock}"    />
+        </StackPanel>
+        <StackPanel  Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical">
+            <Image  Source="{Binding ImgPath}" Stretch="Uniform"   Width="60" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" />
+           <Border BorderBrush="#FFB6B3B3" BorderThickness="0,0,0,1" Margin="5,5,40,5" Padding="0,0,5,0" />
+            
+        </StackPanel>
+        <StackPanel  Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Label Content="证书密码：" Style="{DynamicResource DispalyLabel}"  />
+            <PasswordBox  Name="PassWd" Template="{DynamicResource AlayazPasswordBox}" FontSize="30" />
+        </StackPanel>
+
+        <!--<Button  Grid.Row="2" Grid.Column="0"  Content="下一步"    
+                 cm:Message.Attach="[Event Click]= [Action Next($source)]"/>-->
+        <WebBrowser  Name="webLogin"   Grid.Row="3" Visibility="Hidden" 
+                       cm:Message.Attach="[Event LoadCompleted]= [Action LoadCompletedHandler($eventArgs,$view,$source)];[Event Navigating]=[Action NavigatingHandler($eventArgs,$view,$source)]"
+                     />
+
+        <Button  Grid.Row="3" Grid.Column="2"  Content="登录"  
+                  cm:Message.Attach="[Event Click]= [Action Login($view,$source)]" Background="#FF1B8EC7" Style="{DynamicResource AlayazButton}"   Width="135" Height="35"/>
+
+        <ProgressBar Name="ProgBar"  Background="White"  Width="500" Height="25" Grid.Row="4" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5"   >
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="10"/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <TextBlock  Name="TipInfo" HorizontalAlignment="Center"   Grid.Row="5" Grid.ColumnSpan="3" Foreground="Red"  />
+    </Grid>
+</UserControl>

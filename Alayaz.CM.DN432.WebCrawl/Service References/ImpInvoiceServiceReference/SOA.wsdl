@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://IBiz.v.jr.com/" targetNamespace="http://IBiz.v.jr.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.168.8.102:16515/SOA?xsd=1" namespace="http://IBiz.v.jr.com/" />
+    </xsd:schema>
+  </types>
+  <message name="Fetch">
+    <part name="arg0" type="tns:users" />
+  </message>
+  <message name="FetchResponse">
+    <part name="return" type="xsd:boolean" />
+  </message>
+  <message name="Inject">
+    <part name="arg0" type="tns:users" />
+  </message>
+  <message name="InjectResponse">
+    <part name="return" type="xsd:boolean" />
+  </message>
+  <portType name="ISyncImportInvoiceService">
+    <operation name="Fetch">
+      <input message="tns:Fetch" />
+      <output message="tns:FetchResponse" />
+    </operation>
+    <operation name="Inject">
+      <input message="tns:Inject" />
+      <output message="tns:InjectResponse" />
+    </operation>
+  </portType>
+</definitions>

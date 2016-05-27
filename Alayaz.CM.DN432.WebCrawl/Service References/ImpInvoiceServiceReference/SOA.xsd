@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://IBiz.v.jr.com/" targetNamespace="http://IBiz.v.jr.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Users" type="tns:users" />
+  <xs:complexType name="users">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="regdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element name="roleid" type="xs:int" />
+      <xs:element name="status" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="userid" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

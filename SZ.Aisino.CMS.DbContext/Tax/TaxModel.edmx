@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="VIMS_BIZ_INVOICE">
+          <Key>
+            <PropertyRef Name="FPDM" />
+            <PropertyRef Name="FPHM" />
+            <PropertyRef Name="FPMW" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="FPLB" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="FPDM" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="FPHM" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="KPRQ" Type="date" Nullable="false" />
+          <Property Name="JQBH" Type="varchar2" MaxLength="20" />
+          <Property Name="GFSH" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="XFSH" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="FPMW" Type="varchar2" MaxLength="190" Nullable="false" />
+          <Property Name="FPJE" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FPSE" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FPSL" Type="number" Precision="6" Scale="2" />
+          <Property Name="QDBZ" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="GFMC" Type="varchar2" MaxLength="255" />
+          <Property Name="XFMC" Type="varchar2" MaxLength="255" />
+          <Property Name="HZMW" Type="varchar2" MaxLength="672" />
+          <Property Name="XHQDBZ" Type="varchar2" MaxLength="2" />
+          <Property Name="KJQY" Type="varchar2" MaxLength="2" />
+          <Property Name="SWJGDM" Type="varchar2" MaxLength="11" />
+          <Property Name="DKDWDM" Type="varchar2" MaxLength="20" />
+          <Property Name="JMBZ" Type="varchar2" MaxLength="3" />
+          <Property Name="RZJG" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="RZJGSM" Type="varchar2" MaxLength="255" />
+          <Property Name="RZSJ" Type="date" />
+          <Property Name="SHBZ" Type="varchar2" MaxLength="2" />
+          <Property Name="SHRQ" Type="date" />
+          <Property Name="TAXHALLFLAG" Type="varchar2" MaxLength="2" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="50" />
+          <Property Name="TSBZ" Type="varchar2" MaxLength="2" />
+          <Property Name="YWBZ" Type="varchar2" MaxLength="50" />
+          <Property Name="PZH" Type="varchar2" MaxLength="50" />
+          <Property Name="FPLY" Type="varchar2" MaxLength="2" />
+          <Property Name="DKZT" Type="varchar2" MaxLength="2" />
+          <Property Name="FPYT" Type="varchar2" MaxLength="2" />
+          <Property Name="RZLY" Type="varchar2" MaxLength="2" />
+          <Property Name="PZLB" Type="varchar2" MaxLength="255" />
+          <Property Name="RZSBYY" Type="varchar2" MaxLength="50" />
+          <Property Name="RZZT" Type="varchar2" MaxLength="2" />
+          <Property Name="UPDATETIME" Type="date" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="VIMS_BIZ_INVOICE" EntityType="Self.VIMS_BIZ_INVOICE" Schema="XXFP" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="VIMS_BIZ_INVOICE">
+          <Key>
+            <PropertyRef Name="FPDM" />
+            <PropertyRef Name="FPHM" />
+            <PropertyRef Name="FPMW" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPLB" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPDM" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPHM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KPRQ" Type="DateTime" Nullable="false" />
+          <Property Name="JQBH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GFSH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="XFSH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPMW" Type="String" MaxLength="190" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FPJE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FPSE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FPSL" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="QDBZ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GFMC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="XFMC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HZMW" Type="String" MaxLength="672" FixedLength="false" Unicode="false" />
+          <Property Name="XHQDBZ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="KJQY" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SWJGDM" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="DKDWDM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="JMBZ" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="RZJG" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RZJGSM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RZSJ" Type="DateTime" />
+          <Property Name="SHBZ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SHRQ" Type="DateTime" />
+          <Property Name="TAXHALLFLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TSBZ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="YWBZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PZH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FPLY" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DKZT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FPYT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="RZLY" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PZLB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RZSBYY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RZZT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+        </EntityType>
+        <EntityContainer Name="TaxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="VIMS_BIZ_INVOICE" EntityType="Self.VIMS_BIZ_INVOICE" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="TaxEntities">
+          <EntitySetMapping Name="VIMS_BIZ_INVOICE">
+            <EntityTypeMapping TypeName="Model.VIMS_BIZ_INVOICE">
+              <MappingFragment StoreEntitySet="VIMS_BIZ_INVOICE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FPLB" ColumnName="FPLB" />
+                <ScalarProperty Name="FPDM" ColumnName="FPDM" />
+                <ScalarProperty Name="FPHM" ColumnName="FPHM" />
+                <ScalarProperty Name="KPRQ" ColumnName="KPRQ" />
+                <ScalarProperty Name="JQBH" ColumnName="JQBH" />
+                <ScalarProperty Name="GFSH" ColumnName="GFSH" />
+                <ScalarProperty Name="XFSH" ColumnName="XFSH" />
+                <ScalarProperty Name="FPMW" ColumnName="FPMW" />
+                <ScalarProperty Name="FPJE" ColumnName="FPJE" />
+                <ScalarProperty Name="FPSE" ColumnName="FPSE" />
+                <ScalarProperty Name="FPSL" ColumnName="FPSL" />
+                <ScalarProperty Name="QDBZ" ColumnName="QDBZ" />
+                <ScalarProperty Name="GFMC" ColumnName="GFMC" />
+                <ScalarProperty Name="XFMC" ColumnName="XFMC" />
+                <ScalarProperty Name="HZMW" ColumnName="HZMW" />
+                <ScalarProperty Name="XHQDBZ" ColumnName="XHQDBZ" />
+                <ScalarProperty Name="KJQY" ColumnName="KJQY" />
+                <ScalarProperty Name="SWJGDM" ColumnName="SWJGDM" />
+                <ScalarProperty Name="DKDWDM" ColumnName="DKDWDM" />
+                <ScalarProperty Name="JMBZ" ColumnName="JMBZ" />
+                <ScalarProperty Name="RZJG" ColumnName="RZJG" />
+                <ScalarProperty Name="RZJGSM" ColumnName="RZJGSM" />
+                <ScalarProperty Name="RZSJ" ColumnName="RZSJ" />
+                <ScalarProperty Name="SHBZ" ColumnName="SHBZ" />
+                <ScalarProperty Name="SHRQ" ColumnName="SHRQ" />
+                <ScalarProperty Name="TAXHALLFLAG" ColumnName="TAXHALLFLAG" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="TSBZ" ColumnName="TSBZ" />
+                <ScalarProperty Name="YWBZ" ColumnName="YWBZ" />
+                <ScalarProperty Name="PZH" ColumnName="PZH" />
+                <ScalarProperty Name="FPLY" ColumnName="FPLY" />
+                <ScalarProperty Name="DKZT" ColumnName="DKZT" />
+                <ScalarProperty Name="FPYT" ColumnName="FPYT" />
+                <ScalarProperty Name="RZLY" ColumnName="RZLY" />
+                <ScalarProperty Name="PZLB" ColumnName="PZLB" />
+                <ScalarProperty Name="RZSBYY" ColumnName="RZSBYY" />
+                <ScalarProperty Name="RZZT" ColumnName="RZZT" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

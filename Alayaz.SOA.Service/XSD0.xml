@@ -1,0 +1,31 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+  <xs:import schemaLocation="http://192.168.0.254:16510/SyncImport.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel"/>
+  <xs:element name="InjectList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel" minOccurs="0" name="soap" nillable="true" type="q1:ImportInvoiceListDTO"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InjectListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel" minOccurs="0" name="InjectListResult" nillable="true" type="q2:ImportInvoiceListDTO"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel" minOccurs="0" name="soap" nillable="true" type="q3:ImportInvoiceDTO"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Alayaz.SOA.Service.ViewModel" minOccurs="0" name="FetchListResult" nillable="true" type="q4:ImportInvoiceListDTO"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

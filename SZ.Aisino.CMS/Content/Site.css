@@ -1,0 +1,460 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    padding-bottom: 0;
+    height: 100%;
+ }
+ 
+
+a:focus {
+    outline: none;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.red {
+    color: red;
+}
+
+.treegridIndent {
+    display: inline-block;
+    width: 35px;
+    height: 14px;
+}
+
+.selected {
+    background: url(images/icons.png) no-repeat -100px -80px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.radioButtonList {
+   margin: 2px;
+ }
+.radioButtonList input{
+     margin: 2px;
+}
+.radioButtonList label{
+     margin: 5px;
+}
+.gtm.container {
+    width: 100%;
+}
+
+.gtm.navbar {
+    border-radius: 0;
+    margin: 0;
+    /*z-index: 10000;*/
+}
+
+.gtm.navbar-inverse {
+    background-color: #428bca;
+    border-bottom: 2px solid #ccc;
+}
+
+    .gtm.navbar-inverse .navbar-brand {
+        color: white;
+    }
+
+.gtm.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 1px solid #999;
+    border-bottom-color: transparent;
+}
+
+.gtm.nav-tabs {
+    border-bottom: 1px solid #999;
+}
+
+.gtm.panel-primary .panel-heading .help-block {
+    color: white;
+}
+
+.gtm.sidebar .panel-group .panel {
+    margin: 0;
+    border-radius: 0;
+}
+
+.gtm.sidebar .panel + .panel {
+    border-top: none;
+}
+
+.gtm.sidebar .panel-heading {
+    border-radius: 0;
+}
+
+.gtm.sidebar .panel .in {
+}
+
+.gtm.breadcrumb, .gtm.mainContainer, .gtm.sidebar {
+    top: 52px; 
+}
+
+.gtm.bodyContainer {
+    padding: 4px;
+    top: 37px;
+}
+
+.gtm.breadcrumb {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    border-radius: 0;
+    margin: 0;
+    border-bottom: #ccc solid 1px;
+}
+#abs {
+        width:962px;
+    height: 100%;
+    /*position: absolute;
+    top:180px;*/
+    margin-top:180px;
+    margin-bottom:120px;
+ }
+.gtm.mainContainer {
+    width: 100%;
+    height: 100%;
+   position:absolute;
+ }
+
+.gtm.bodyContainer {
+    position: relative;
+}
+
+.gtm.sidebar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    float: left;
+    background: #e8e8e8;
+    padding: 0 0px;
+    border-right: #ccc solid 1px;
+    top: 50px;
+    left:0;
+}
+
+    .gtm.sidebar .panel-group .in {
+        border-right: 2px solid green;
+    }
+
+.gtm.gotop {
+    font-size: 30px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+.gtm.mainContent {
+    /*float: left;*/
+    margin: 0 0 0 200px;
+    /*padding: 0 5px;*/
+    position: relative;
+    box-sizing: border-box;
+}
+
+.gtm.docFooter {
+    margin-top: 100px;
+    padding-top: 30px;
+    border-top: 1px solid #ccc;
+    clear: both;
+    text-align: center;
+    position: relative;
+}
+
+
+
+/*搜索输入框默认文字颜色*/
+.inputGrayColor {
+    color: gray;
+}
+
+.inputBlackColor {
+    color: black;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.company-logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .company-logo img {
+        width: 50px;
+        height: 50px;
+        margin-left: -65px;
+    }
+
+.role-selected {
+    width: 630px;
+    height: 300px;
+    border: solid 1px gray;
+}
+
+    .role-selected div {
+        cursor: pointer;
+    }
+
+.role-selected-mouse-over {
+    background-color: gainsboro;
+}
+
+.myWidth {
+    width: 310px;
+}
+
+
+.errorTips {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    left: 400px;
+    top: 300px;
+    z-index: 10000;
+}
+
+.gray_border {
+    border: solid 1px gray;
+}
+
+.tipImageBg {
+    float: right;
+    background: url(images/tips.gif) no-repeat;
+    margin-top: -5px;
+    margin-left: 5px;
+    display: inline;
+}
+/*公共背景图片*/
+/*按钮*/
+.tipssuccess {
+    background-position: -2px 0px;
+    width: 30px;
+    height: 30px;
+}
+/*成功图标*/
+.tipserror {
+    background-position: -33px 0px;
+    width: 30px;
+    height: 30px;
+}
+/*错误图标*/
+.tipswarn {
+    background-position: -68px 0px;
+    width: 30px;
+    height: 30px;
+}
+/*警告图标*/
+.tipsinfor {
+    background-position: -102px 0px;
+    width: 30px;
+    height: 30px;
+}
+/*禁止图标*/
+
+/*公司选择器样式 start */
+.compPiker_main {
+    width: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: white;
+    z-index: 10000;
+    position: absolute;
+}
+
+.compPiker_content {
+    width: 500px;
+    padding-bottom: 1px;
+}
+
+.compPiker_footer {
+    width: 500px;
+    height: 40px;
+    background-color: #cdcdcd;
+    margin-top: -20px;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+    border-bottom: solid 1px gray;
+}
+
+    .compPiker_footer div {
+        float: left;
+    }
+
+.compPiker_table {
+    width: 500px;
+    border: solid 1px gray;
+}
+
+    .compPiker_table th {
+        background-color: lightgray;
+        border: gray 1px solid;
+    }
+
+    .compPiker_table td {
+        border-bottom: gray 1px solid;
+        border-right: gray 1px solid;
+    }
+
+.compPiker_table_top {
+    border-top: gray 1px solid;
+}
+
+.compPiker_rowClass {
+    background-color: paleturquoise;
+    cursor: pointer;
+}
+
+.compPiker_higthlight {
+    font-weight: bold;
+    color: red;
+}
+.compPikerPageBack {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -148px -1px;
+    width: 10px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.compPikerPageFront {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -168px -1px;
+    width: 10px;
+    height: 15px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.compPikerPageBack_disabled {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -148px -16px;
+    width: 10px;
+    height: 15px;
+    margin-top: 12px;
+    margin-left: 20px;
+    cursor: default;
+}
+
+.compPikerPageFront_disabled {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -168px -16px;
+    width: 10px;
+    height: 15px;
+    margin-top: 12px;
+    cursor: default;
+}
+
+.compPikerPageIndex {
+    margin: 9px 10px 0px 10px;
+}
+
+/*公司选择器样式 end */
+
+/*箭头方向样式*/
+.user_role_arrow_down {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -185px -0px;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.user_role_arrow_left {
+    background: url(images/tips.gif) no-repeat;
+    background-position: -199px -0px;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.user_role_arrow_none {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+
+.user_role_click {
+    cursor: pointer;
+    width: auto;
+}
+
+#company_user_content .panel-body {
+    height: 550px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.search-div {
+    padding: 10px;
+}
+
+.search-div input {
+    margin-right: 10px;
+}
+
+.tab-main {
+    margin: 15px 0px 15px 20px;
+}
+
+.tab-content-body {
+    width: 90%;
+    margin: 0px 0px 15px 10px;
+}
+
+.tab-content-foot {
+    margin: 20px 0px 0px 10px;
+    width: 100%;
+}
+
+.tips-main {
+    z-index: 10000;
+    position: absolute;
+}
+
+.tab-body-padding {
+    padding: 20px;
+}
+
+.tab-content-body-height {
+    height: 470px;
+}
+
+.left-tree-container {
+    width: 100%;
+    height: 630px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.right-list-container {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: solid 0px gray;
+    border-right: solid 0px gray;
+    border-bottom: solid 0px gray;
+    border-left: solid 0px gray;
+}
+
+.example-btn {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    height: 25px;
+    font-size: 12px;
+    padding: 4px 10px;
+}

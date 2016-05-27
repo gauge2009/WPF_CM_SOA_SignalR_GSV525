@@ -1,0 +1,21 @@
+﻿<#@ include file="Tax.Sequences.ttinclude" #>
+<#@ output extension=".cs" #>
+
+namespace SZ.Aisino.CMS.DbEntity.Tax{
+	public enum Sequences{
+	<#
+	var sqs = LoadSequences();
+	if(sqs.Count>0){ 
+		for(var i=0;i<sqs.Count;i++){
+	#>
+
+		<#= sqs[i] #> <#if(i < sqs.Count - 1)
+		{#> ,
+		<#}#>
+	<#
+		}
+	}
+	#>
+
+	}
+}

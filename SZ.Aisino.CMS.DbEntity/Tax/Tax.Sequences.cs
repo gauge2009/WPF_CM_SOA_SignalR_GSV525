@@ -1,0 +1,195 @@
+﻿
+
+
+
+
+namespace SZ.Aisino.CMS.DbEntity.Tax{
+	public enum Sequences{
+	
+		SEQ_BBZL_YZ_ALL  ,
+			
+		SEQ_BMFPZLHZYD_YZ_ALL  ,
+			
+		SEQ_BMXXFPYD_YZ_ALL  ,
+			
+		SEQ_BM_YZ_ALL  ,
+			
+		SEQ_CKPXX_YZ_ALL  ,
+			
+		SEQ_CSB_YZ_ALL  ,
+			
+		SEQ_CXTJ_FPKCXX_YZ_ALL  ,
+			
+		SEQ_CZRY_YZ_ALL  ,
+			
+		SEQ_DJBFPLYC_YZ_ALL  ,
+			
+		SEQ_DKFPGX_YZ_ALL  ,
+			
+		SEQ_DKFP_YZ_ALL  ,
+			
+		SEQ_DLIP_YZ_ALL  ,
+			
+		SEQ_DM_WD_ALL  ,
+			
+		SEQ_DM_XTGN  ,
+			
+		SEQ_ESBRZ_YZ_ALL  ,
+			
+		SEQ_FPGLFHDXXID_YZ_ALL  ,
+			
+		SEQ_FPGLFHDXX_YZ_ALL  ,
+			
+		SEQ_FPGLJXDXXID_YZ_ALL  ,
+			
+		SEQ_FPGLJXDXX_YZ_ALL  ,
+			
+		SEQ_FPGLKCXX_YZ_ALL  ,
+			
+		SEQ_FPGLLYCXXTJ_YZ_ALL  ,
+			
+		SEQ_FPGLLYCXX_YZ_ALL  ,
+			
+		SEQ_FPGLQLDXXID_YZ_ALL  ,
+			
+		SEQ_FPGLQLDXX_YZ_ALL  ,
+			
+		SEQ_FPGLXXFPMX_YZ_ALL  ,
+			
+		SEQ_FPGLXXFPQD_YZ_ALL  ,
+			
+		SEQ_FPGLXXFP_YZ_ALL  ,
+			
+		SEQ_FPKCXX_YZ_ALL  ,
+			
+		SEQ_FPLYCXX_YZ_ALL  ,
+			
+		SEQ_FPSCXZJL_YZ_ALL  ,
+			
+		SEQ_GFXX_FB_YZ_ALL  ,
+			
+		SEQ_GFXX_YZ_ALL  ,
+			
+		SEQ_GXID_YDT_ALL  ,
+			
+		SEQ_GYSQXXB_YDT_ALL  ,
+			
+		SEQ_HIBERNATE_YZ_AL  ,
+			
+		SEQ_HIBERNATE_YZ_ALL  ,
+			
+		SEQ_HTRZFILE_YZ_ALL  ,
+			
+		SEQ_HTRZ_YZ_ALL  ,
+			
+		SEQ_HZFPTZDMX_YZ_ALL  ,
+			
+		SEQ_HZFPTZD_YZ_ALL  ,
+			
+		SEQ_JDFPKCXX_YZ_ALL  ,
+			
+		SEQ_JDFPLYCXX_YZ_ALL  ,
+			
+		SEQ_JDFPXXFPMX_YZ_ALL  ,
+			
+		SEQ_JDFPXXFPQD_YZ_ALL  ,
+			
+		SEQ_JDFPXXFP_YZ_ALL  ,
+			
+		SEQ_JGWWIP_YZ_ALL  ,
+			
+		SEQ_JSPXXMX_YDT_ALL  ,
+			
+		SEQ_JSPXX_YDT_ALL  ,
+			
+		SEQ_JS_YZ_ALL  ,
+			
+		SEQ_KPDFPZLHZYD_YZ_ALL  ,
+			
+		SEQ_KPDXXFPYD_YZ_ALL  ,
+			
+		SEQ_KPDXX_YZ_ALL  ,
+			
+		SEQ_KPFWQFPZLHZYD_YZ_ALL  ,
+			
+		SEQ_KPFWQXXFPYD_YZ_ALL  ,
+			
+		SEQ_KPFWQXX_YZ_ALL  ,
+			
+		SEQ_KPRZ_YZ_ALL  ,
+			
+		SEQ_KPSQ_YZ_ALL  ,
+			
+		SEQ_LOG  ,
+			
+		SEQ_LUIP_YZ_ALL  ,
+			
+		SEQ_LUWWGX_YZ_ALL  ,
+			
+		SEQ_NSRFPZLHZYD_YZ_ALL  ,
+			
+		SEQ_NSRXXFPYD_YZ_ALL  ,
+			
+		SEQ_QTRZ_YZ_ALL  ,
+			
+		SEQ_REDINVREQINFOMX_YZ_ALL  ,
+			
+		SEQ_RZPZ_YZ_ALL  ,
+			
+		SEQ_RZ_SJJH_ID  ,
+			
+		SEQ_SHLCMX_YZ_ALL  ,
+			
+		SEQ_SM_YZ_ALL  ,
+			
+		SEQ_SP_YZ_ALL  ,
+			
+		SEQ_SQDH_YZ_ALL  ,
+			
+		SEQ_SXFB1_YZ_ALL  ,
+			
+		SEQ_SXFB2_YZ_ALL  ,
+			
+		SEQ_SXMXID_YZ_ALL  ,
+			
+		SEQ_SXZBID_YZ_ALL  ,
+			
+		SEQ_TBRZ_YZ_ALL  ,
+			
+		SEQ_TEST_XSD_ALL  ,
+			
+		SEQ_WWIP_YZ_ALL  ,
+			
+		SEQ_XFXX_FB_YZ_ALL  ,
+			
+		SEQ_XFXX_YZ_ALL  ,
+			
+		SEQ_XSDXXMX_YZ_ALL  ,
+			
+		SEQ_XSDXX_YZ_ALL  ,
+			
+		SEQ_XTGL_CLBM_YZ_ALL  ,
+			
+		SEQ_XTGL_FYXM_YZ_ALL  ,
+			
+		SEQ_XTGL_GHDW_YZ_ALL  ,
+			
+		SEQ_XTGL_GYSHLCPZ_YZ_ALL  ,
+			
+		SEQ_XTGL_SFHR_YZ_ALL  ,
+			
+		SEQ_XTGN_YZ_ALL  ,
+			
+		SEQ_XXFPMX_YZ_ALL  ,
+			
+		SEQ_XXFPQD_YZ_ALL  ,
+			
+		SEQ_XXFP_YZ_ALL  ,
+			
+		SEQ_YH_YZ_ALL  ,
+			
+		SEQ_ZFJGGL_YZ_ALL  ,
+			
+		SEQ_ZNXX_ALL 	
+	}
+}
