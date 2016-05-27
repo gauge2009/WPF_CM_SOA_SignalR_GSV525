@@ -260,6 +260,8 @@
     <Compile Include="Services\WcfServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="connection-client.html" />
+    <Content Include="connection-client2.html" />
     <Content Include="Content\bootstrap-ie7.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -274,6 +276,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="hub-client.html" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Configs\Log4net.config" />
@@ -371,9 +374,16 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
     <Content Include="Scripts\jquery.colorbox.js" />
     <Content Include="Scripts\jquery.placeholder.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.0.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\jquery.treetable.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

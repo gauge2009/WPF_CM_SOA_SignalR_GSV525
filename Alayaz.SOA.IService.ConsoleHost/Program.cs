@@ -1,8 +1,13 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
+ 
+ using Microsoft.AspNet.SignalR;
+using Microsoft.Owin.Cors;
+using Microsoft.Owin.Hosting;
+using Owin;
 
 namespace Alayaz.SOA.IService.ConsoleHost
 {
@@ -17,6 +22,9 @@ namespace Alayaz.SOA.IService.ConsoleHost
                 host.Open();
 
                 Console.WriteLine("Service Host Satrt...!");
+
+                StartSgnlR();
+
                 Console.ReadLine();
             }
             catch (Exception ex)
@@ -35,6 +43,22 @@ namespace Alayaz.SOA.IService.ConsoleHost
                 }
 
             }
+
+            #region SignalR
+
+            StartSgnlR();
+
+            #endregion
+        }
+
+        private static void StartSgnlR()
+        {
+            using (WebApp.Start<Startup>("http://localhost:11111"))
+            {
+                Console.WriteLine("Server running at http://localhost:11111");
+                Console.ReadLine();
+            }
         }
     }
+
 }

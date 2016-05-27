@@ -268,7 +268,6 @@
     <Resource Include="imgs\fpdk_szgs_step4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Axure\0505\" />
     <Folder Include="Configs\" />
     <Folder Include="Themes\" />
   </ItemGroup>
@@ -296,15 +295,15 @@
     <Content Include="Axure\cookies.js" />
     <Content Include="Axure\crypt.js" />
     <Content Include="Axure\demo.js" />
-    <Content Include="Axure\fphx-afterPost.html" />
-    <Content Include="Axure\fphx.html" />
-    <Content Include="Axure\fpcx-afterPost.html" />
-    <Content Include="Axure\fpcx.html" />
-    <Content Include="Axure\Index_popup_message.html" />
+    <Content Include="Axure\0505\fphx-afterPost.html" />
+    <Content Include="Axure\0505\fphx.html" />
+    <Content Include="Axure\0505\fpcx-afterPost.html" />
+    <Content Include="Axure\0505\fpcx.html" />
+    <Content Include="Axure\0505\Index_popup_message.html" />
     <Content Include="Axure\jquery.dataTables.js" />
     <Content Include="Axure\jquery.dataTables.newest.js" />
-    <Content Include="Axure\main.html" />
-    <Content Include="Axure\Index.html" />
+    <Content Include="Axure\0505\main.html" />
+    <Content Include="Axure\0505\Index.html" />
     <Content Include="Axure\shCore.js" />
     <Content Include="Axure\tableload.js" />
     <None Include="Service References\WinSvcHostServiceRef\Reference.svcmap">

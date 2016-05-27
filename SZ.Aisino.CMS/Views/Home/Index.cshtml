@@ -4,6 +4,25 @@
     ViewBag.Title = "Index";
 }
 
+
+@section styles{
+    
+
+<style>
+    #panel {
+        margin-left: 10px;
+        width: 300px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+
+
+    
+}
+
 <h2>Index</h2>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -11,6 +30,16 @@
             <input id="addBtn" name="addBtn" type="button" class="btn btn-primary input-sm" value="Start Sync Import Invoices to DB" />
              
             <a  href="http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl">同步采集</a>
+
+
+            <h2>Hub client</h2>
+            <div id="panel">
+                <button disabled="disabled" id="pingBtn">Ping</button>
+                <ul id="results"></ul>
+            </div>
+
+
+
         </div>
     </div>
     <div class="panel-body">
@@ -23,14 +52,61 @@
     @*http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl*@
 
 
+
+
+
 @section scripts{
+
+<script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+<script src="http://localhost:11111/hub/js"></script>
+
 <script>
     var pageHelper = {};
     (function (o) {
         o.GetUrl = " http://localhost:16521/alayazsoa/JustStart";
         o.Init = function () {
             $("#addBtn").click("click", o.OpenWindows);
+
+
+            //o.RealtimeMsg_InitHub();
+            //o.RealtimeMsg_InitPingConnection();
         };
+
+        o.RealtimeMsg_InitHub = function (e) {
+            $.connection.hub.url = "http://localhost:11111/hub";
+            var hub = $.connection.pingHub;
+            debugger
+            hub.client.message = function (data) {
+                $("#results").prepend("<li>" + data + "</li>");
+            };
+            $.connection.hub.start()
+                .done(function () {
+                    $("#results").append("<li>Connected</li>");
+                    $("#pingBtn")
+                        .removeAttr("disabled")
+                        .click(function () {
+                            hub.server.ping();
+                        });
+                });
+        };
+        o.RealtimeMsg_InitPingConnection = function (e) {
+            var connection = $.connection("http://localhost:11111/ping-connection");
+            connection.received(function (data) {
+                $("#results").prepend("<li>" + data + "</li>");
+            });
+            connection.start()
+                .done(function () {
+                    $("#results").append("<li>Connected</li>");
+                    $("#pingBtn")
+                        .removeAttr("disabled")
+                        .click(function () {
+                            connection.send("Ping");
+                        });
+                });
+        };
+
+     
+
         o.OpenWindows = function (event) {
             event.preventDefault();
             var eventTarget = $(event.target).get(0);

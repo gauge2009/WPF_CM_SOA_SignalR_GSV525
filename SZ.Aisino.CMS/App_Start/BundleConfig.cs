@@ -30,6 +30,15 @@ namespace SZ.Aisino.CMS {
                 "~/Scripts/Common.js"
                 ));
 
+            
+            bundles.Add(new ScriptBundle("~/bundles/sgnlr").Include(
+                 "~/Scripts/jquery.signalR-2.2.0.js"
+                //"~/Scripts/jquery.signalR-2.0.0.js"
+
+                ));
+
+
+
             bundles.Add(new ScriptBundle("~/bundles/chart").Include(
                 "~/Scripts/Chart.js",
                 "~/Scripts/ichart.1.2.1.min.js"
