@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 
-namespace Alayaz.SOA.IService.ConsoleHost
+namespace Alayaz.SOA.IClientService.ConsoleHost
 {
     public class PingHub : Hub
     {

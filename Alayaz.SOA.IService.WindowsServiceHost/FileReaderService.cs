@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-namespace Alayaz.SOA.IService.WindowsServiceHost
+namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     public class FileReaderService : IFileReader
     {

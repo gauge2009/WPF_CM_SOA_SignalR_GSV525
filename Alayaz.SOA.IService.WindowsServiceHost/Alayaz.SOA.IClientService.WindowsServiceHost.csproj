@@ -7,8 +7,8 @@
     <ProjectGuid>{7A28F31C-7CFD-4728-B592-7B55F72F1537}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alayaz.SOA.IService.WindowsServiceHost</RootNamespace>
-    <AssemblyName>Alayaz.SOA.IService.WindowsServiceHost</AssemblyName>
+    <RootNamespace>Alayaz.SOA.IClientService.WindowsServiceHost</RootNamespace>
+    <AssemblyName>Alayaz.SOA.IClientService.WindowsServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>

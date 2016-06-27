@@ -6,7 +6,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 
 using System.Text;
-namespace Alayaz.SOA.IService.ConsoleHost
+namespace Alayaz.SOA.IClientService.ConsoleHost
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
 

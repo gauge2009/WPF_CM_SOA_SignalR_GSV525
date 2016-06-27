@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
-namespace Alayaz.SOA.IService.WindowsServiceHost
+namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     [ServiceContract(Namespace = "http://www.alayaz.com/")]
     public interface IFileReader

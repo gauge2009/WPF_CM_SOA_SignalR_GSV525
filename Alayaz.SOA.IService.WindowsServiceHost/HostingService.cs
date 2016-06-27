@@ -9,7 +9,7 @@ using System.ServiceModel;
 using System.ServiceProcess;
 using System.Text;
 
-namespace Alayaz.SOA.IService.WindowsServiceHost
+namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     partial class HostingService : ServiceBase
     {

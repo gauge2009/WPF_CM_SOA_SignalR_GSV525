@@ -1,4 +1,4 @@
-﻿namespace Alayaz.SOA.IService.WindowsServiceHost
+﻿namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     partial class HostingService
     {

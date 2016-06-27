@@ -3,7 +3,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 
-namespace Alayaz.SOA.IService.ConsoleHost
+namespace Alayaz.SOA.IClientService.ConsoleHost
 {
     [ServiceContract(Namespace = "http://www.alayaz.com/")]
 

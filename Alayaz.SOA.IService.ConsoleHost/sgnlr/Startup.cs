@@ -4,7 +4,7 @@ using Microsoft.Owin.Cors;
 using Microsoft.Owin.Hosting;
 using Owin;
 
-namespace Alayaz.SOA.IService.ConsoleHost
+namespace Alayaz.SOA.IClientService.ConsoleHost
 {
     public class Startup
     {

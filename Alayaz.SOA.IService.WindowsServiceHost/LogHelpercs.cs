@@ -6,7 +6,7 @@ using System.Text;
  
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
-namespace Alayaz.SOA.IService.WindowsServiceHost
+namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     public class LogHelper
     {

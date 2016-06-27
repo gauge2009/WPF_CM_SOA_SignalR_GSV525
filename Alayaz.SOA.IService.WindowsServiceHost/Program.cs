@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 
-namespace Alayaz.SOA.IService.WindowsServiceHost
+namespace Alayaz.SOA.IClientService.WindowsServiceHost
 {
     static class Program
     {
