@@ -1,0 +1,155 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Alayaz.WF.SequentialNumberGuessWorkflow.KeyActivity"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:awa="clr-namespace:Alayaz.WF.ActivityLib;assembly=Alayaz.WF.ActivityLib"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="MaxNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="Turns" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>Alayaz.WF.SequentialNumberGuessWorkflow.Activity1_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Alayaz.WF.ActivityLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Alayaz.WF.SequentialNumberGuessWorkflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="Guess" />
+      <Variable x:TypeArguments="x:Int32" Name="Target" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">
+          <mca:CSharpReference x:TypeArguments="x:Int32">Target</mca:CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">
+          <mca:CSharpValue x:TypeArguments="x:Int32">new System.Random().Next(1, MaxNumber + 1)</mca:CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <DoWhile sap2010:WorkflowViewState.IdRef="DoWhile_1">
+      <DoWhile.Condition>
+        <mca:CSharpValue x:TypeArguments="x:Boolean">Guess != Target</mca:CSharpValue>
+      </DoWhile.Condition>
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <awa:Prompt BookmarkName="EnterGuess" sap2010:WorkflowViewState.IdRef="Prompt_1">
+          <awa:Prompt.Result>
+            <OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">Guess</mca:CSharpReference>
+            </OutArgument>
+          </awa:Prompt.Result>
+          <awa:Prompt.Text>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">"Please enter a number between 1 and " + MaxNumber</mca:CSharpValue>
+            </InArgument>
+          </awa:Prompt.Text>
+        </awa:Prompt>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">Turns</mca:CSharpReference>
+            </OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">Turns + 1</mca:CSharpValue>
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+        <If sap2010:WorkflowViewState.IdRef="If_2">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">Guess != Target</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <If sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <mca:CSharpValue x:TypeArguments="x:Boolean">Guess &lt; Target</mca:CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="低了！" />
+              </If.Then>
+              <If.Else>
+                <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="高了！" />
+              </If.Else>
+            </If>
+          </If.Then>
+          <If.Else>
+            <WriteLine Text="猜对了" sap2010:WorkflowViewState.IdRef="WriteLine_3" />
+          </If.Else>
+        </If>
+      </Sequence>
+    </DoWhile>
+    <sads:DebugSymbol.Symbol>d19DOlxUMl8xNlxHcmFwaFxXUEZfQ01fU09BX1NpZ25hbFJcbWFpblxBbGF5YXouV0YuU2VxdWVudGlhbE51bWJlckd1ZXNzV29ya2Zsb3dcS2V5QWN0aXZpdHkueGFtbBgtA3cOAgEBMgU9DgIBMj4FdQ8CAQI6CzpyAgE4NQs1VgIBM0AJQFcCAS1CB3QSAgEDQwlOFgIBIU8JWhICARZbCXMOAgEEQyJDLgIBLEsPS38CASdGD0ZZAgEiVw9XVQIBHFIPUlkCARdeD15dAgEFYg1uEgIBDHENcVMCAQplE2VjAgENaRFpVwIBFGwRbFcCARJxHXEiAgELaU9pVAIBFWxPbFQCARM=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="751.2,61.6" />
+      <sap2010:ViewStateData Id="Prompt_1" sap:VirtualizedContainerService.HintSize="703.2,22.4" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="703.2,61.6" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="214.4,62.4" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="214.4,62.4" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,213.6" />
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="214.4,62.4" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="703.2,364.8" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="725.6,653.6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_1" sap:VirtualizedContainerService.HintSize="751.2,817.6" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="773.6,1044">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Alayaz.WF.SequentialNumberGuessWorkflow.Activity1_1" sap:VirtualizedContainerService.HintSize="813.6,1124">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+            <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

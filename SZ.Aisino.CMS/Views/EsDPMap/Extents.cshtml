@@ -1,0 +1,127 @@
+﻿
+@{
+
+    ViewBag.Title = "Extents";
+}
+
+
+@section styles{
+
+
+    <style>
+        #panel {
+            margin-left: 10px;
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+
+
+
+}
+
+<h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <h2> $.extents  </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+
+ 
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+        <input   name="invoke" type="button" class="btn btn-primary input-sm" value="invoke" />
+    </div>
+</div>
+
+@*http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl*@
+
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="http://localhost:11111/hub/js"></script>
+
+    <script>
+    var pageHelper = {};
+    (function (o) {
+        o.GetUrl = " http://localhost:16521/alayazsoa/JustStart";
+        o.List = new Array();// new Array("Saab", "Volvo", "BMW")
+        o.Init = function () {
+            $("input[name='invoke']").click("click", o.OpenWindows);
+            //o.RealtimeMsg_InitHub();
+            //o.RealtimeMsg_InitPingConnection();
+
+            o.List[0] = "Ford";
+            o.List[1] = "Volvo";
+            o.List[2] = "BMW";
+        };
+      
+        o.OpenWindows = function (event) {
+            event.preventDefault();
+            var eventTarget = $(event.target).get(0);
+            switch (eventTarget.name) {
+                case "invoke":
+                    o.invoke(event);
+                    break;
+            }
+        };
+        o.invoke = function () {
+            var probe = o.List.indexOf2("BMW");
+            alert(probe);
+        }
+
+        o.add = function (event) {
+            //var uri = o.GetUrl + "/?appName=&param=crawl";
+            var ls = {
+                appName: '',
+                param: 'crawl',  //crawl  /  confirm
+                TaxCode: '4403...',
+                PWD: '12345678',
+                Begin: '2016-05-24',
+                End: '2016-05-25',
+                Url: 'fpdk.szgs.gov.cn', //  
+            };
+            $.ajax({
+                url: o.GetUrl,
+                cache: false,
+                async: false,
+                type: "GET",
+                data: ls,
+                success: function (data) {
+                    try {
+                        var result = eval(data);
+                        alert("ok");
+                    }
+                    catch (e) {
+                        alert("oops");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus);
+
+                }
+            });
+        };
+
+     })(pageHelper);
+    $(function (e) {
+        pageHelper.Init();
+
+    });
+
+
+    </script>
+
+}
+

@@ -1,0 +1,241 @@
+﻿
+@{
+
+    ViewBag.Title = "Es DP Map";
+}
+
+
+@section styles{
+
+
+    <style>
+        #panel {
+            margin-left: 10px;
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+
+
+
+}
+
+<h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <h2>  DP1-Ctor
+ </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">DP1-Ctor</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">DP1` - Ctor & prototype</a>
+            </div>
+ 
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+             <h2>  
+dp2-1 module via 对象字面量</h2>
+         </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">dp2-1 module via 对象字面量</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">dp2-2 module via IIFE ~ dp八股模板</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">dp2-3 module via 闭包与作用域延迟</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">dp2-4 releasing Module</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <h2>
+                dp3-1  singleton
+            </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/DP3_1_Singleton">dp3-1  singleton</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">$.extents</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">Extents</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">Extents</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <h2>
+                DP4_1_Observer
+            </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/DP4_1_Observer">DP4_1_Observer</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">$.extents</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">Extents</a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <a class="btn btn-info input-sm" href="http://localhost:16701/EsDPMap/Extents">Extents</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>
+
+@*http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl*@
+
+
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="http://localhost:11111/hub/js"></script>
+
+    <script>
+    var pageHelper = {};
+    (function (o) {
+        o.GetUrl = " http://localhost:16521/alayazsoa/JustStart";
+        o.Init = function () {
+            $("#addBtn").click("click", o.OpenWindows);
+
+
+            //o.RealtimeMsg_InitHub();
+            //o.RealtimeMsg_InitPingConnection();
+        };
+
+        o.RealtimeMsg_InitHub = function (e) {
+            $.connection.hub.url = "http://localhost:11111/hub";
+            var hub = $.connection.pingHub;
+            debugger
+            hub.client.message = function (data) {
+                $("#results").prepend("<li>" + data + "</li>");
+            };
+            $.connection.hub.start()
+                .done(function () {
+                    $("#results").append("<li>Connected</li>");
+                    $("#pingBtn")
+                        .removeAttr("disabled")
+                        .click(function () {
+                            hub.server.ping();
+                        });
+                });
+        };
+        o.RealtimeMsg_InitPingConnection = function (e) {
+            var connection = $.connection("http://localhost:11111/ping-connection");
+            connection.received(function (data) {
+                $("#results").prepend("<li>" + data + "</li>");
+            });
+            connection.start()
+                .done(function () {
+                    $("#results").append("<li>Connected</li>");
+                    $("#pingBtn")
+                        .removeAttr("disabled")
+                        .click(function () {
+                            connection.send("Ping");
+                        });
+                });
+        };
+
+
+
+        o.OpenWindows = function (event) {
+            event.preventDefault();
+            var eventTarget = $(event.target).get(0);
+            switch (eventTarget.name) {
+                case "addBtn":
+                    o.add(event);
+                    break;
+            }
+        };
+        o.add = function (event) {
+            //var uri = o.GetUrl + "/?appName=&param=crawl";
+            var ls = {
+                appName: '',
+                param: 'crawl',  //crawl  /  confirm
+                TaxCode: '4403...',
+                PWD: '12345678',
+                Begin: '2016-05-24',
+                End: '2016-05-25',
+                Url: 'fpdk.szgs.gov.cn', //
+        };
+            $.ajax({
+                url: o.GetUrl,
+                cache:false,
+                async:false,
+                type: "GET",
+                data: ls,
+                success: function (data) {
+                    try {
+                        var result = eval(data);
+                        alert("ok");
+                    }
+                    catch (e) {
+                        alert("oops");
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus);
+
+                }
+            });
+        };
+    })(pageHelper);
+    $(function (e) {
+        pageHelper.Init();
+    });
+
+
+    </script>
+
+}
+

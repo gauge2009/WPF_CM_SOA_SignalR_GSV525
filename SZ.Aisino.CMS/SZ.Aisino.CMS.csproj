@@ -245,6 +245,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\ViewEngineSetting.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EsDPMapController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\EncryptHelper.cs" />
     <Compile Include="UICommon\CacheUtil.cs" />
@@ -277,7 +278,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="hub-client.html" />
+    <Content Include="Scripts\ai.js" />
+    <Content Include="Scripts\ai.min.js" />
+    <Content Include="Scripts\ajaxfileupload.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker__.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Configs\Log4net.config" />
     <Content Include="Configs\pathConfig.config">
@@ -286,6 +291,7 @@
     <Content Include="Configs\Unity.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\mall_config.js" />
@@ -373,11 +379,19 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\lock.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\Common.16628.BeforeJSDP.js" />
+    <Content Include="Scripts\Common.151121.BeforeKO.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\companyPiker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery.colorbox-min.js" />
     <Content Include="Scripts\jquery.colorbox.js" />
     <Content Include="Scripts\jquery.placeholder.js" />
     <Content Include="Scripts\jquery.signalR-2.0.0.js" />
@@ -385,12 +399,24 @@
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\jquery.treetable.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.ztree.core-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.core-3.5.min.js" />
     <Content Include="Scripts\jquery.ztree.excheck-3.5.js" />
+    <Content Include="Scripts\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\JTree.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\province_city_select.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\swiper.3.1.7.jquery.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -405,6 +431,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\EsDPMap\Extents.cshtml" />
+    <Content Include="Views\EsDPMap\Index.cshtml" />
+    <Content Include="Views\EsDPMap\DP3_1_Singleton.cshtml" />
+    <Content Include="Views\EsDPMap\DP4_1_Observer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

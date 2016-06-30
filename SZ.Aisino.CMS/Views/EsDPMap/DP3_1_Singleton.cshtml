@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "DP3_1_Singleton";
+}
+
+ 
+ 
+
+@section styles{
+
+
+    <style>
+        #panel {
+            margin-left: 10px;
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+
+
+
+}
+
+<h2>DP3_1_Singleton</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="btn-group">
+            <h2> DP3_1_Singleton  </h2>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-footer">
+        <input name="invoke" type="button" class="btn btn-primary input-sm" value="invoke" />
+    </div>
+</div>
+
+@*http://localhost:16521/alayazsoa/JustStart/?appName=&param=crawl*@
+
+
+@section scripts{
+
+    @*<script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="http://localhost:11111/hub/js"></script>*@
+
+    <script>
+
+        /// dp2 - module  pattern 
+        var SingletonFactory = (function () { // options: an object containing configuration options for the singleton // e.g var options = { name: 'test', pointX: 5}; 
+            function Singleton(options) {
+                // set options to the options supplied or an empty object if none provided. 
+                options = options || {};
+                //set the name parameter 
+                this.name = 'SingletonFactory';
+                //set the value of pointX 
+                this.pointX = options.pointX || 6;
+                //set the value of pointY
+                this.pointY = options.pointY || 10;
+            }
+            // this is our instance holder 
+            var instance;
+            // this is an emulation of static variables and methods
+            var _static = {
+                name: 'SingletonFactory',
+                // This is a method for getting an instance // It returns a singleton instance of a singleton object 
+                getInstance: function (options) {
+                    if (instance === undefined) {
+                        instance = new Singleton(options);
+                    }
+                    return instance;
+                }
+            };
+            return _static;
+        })();
+
+
+
+    </script>
+
+    <script>
+    var pageHelper = {};
+    (function (o) {
+        //o.GetUrl = " http://localhost:16521/alayazsoa/JustStart";
+        o.List = new Array();// new Array("Saab", "Volvo", "BMW")
+        o.Init = function () {
+            $("input[name='invoke']").click("click", o.OpenWindows);
+        };
+        o.OpenWindows = function (event) {
+            event.preventDefault();
+            var eventTarget = $(event.target).get(0);
+            switch (eventTarget.name) {
+                case "invoke":
+                    o.invoke(event);
+                    break;
+            }
+        };
+        o.invoke = function () {
+
+           
+            var singleton  = SingletonFactory.getInstance({
+                pointX: 5
+            });
+            alert(singleton.pointX); // outputs 5
+
+
+        }
+
+ 
+     })(pageHelper);
+    $(function (e) {
+        pageHelper.Init();
+
+    });
+
+
+    </script>
+
+}
+
+
+
