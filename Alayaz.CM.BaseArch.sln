@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alayaz.WF.NumberGuessWorkfl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alayaz.WF.FlowchartNumberGuessWorkflow", "Alayaz.WF.FlowchartNumberGuessWorkflow\Alayaz.WF.FlowchartNumberGuessWorkflow.csproj", "{82F15A60-6EE7-4631-957A-D1F0D3E04C08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alayaz.WF.StateMachineNumberGuessWorkflow", "Alayaz.WF.StateMachineNumberGuessWorkflow\Alayaz.WF.StateMachineNumberGuessWorkflow.csproj", "{6B9A8BED-34CE-481E-A798-7DEE88C92E13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -253,6 +255,14 @@ Global
 		{82F15A60-6EE7-4631-957A-D1F0D3E04C08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{82F15A60-6EE7-4631-957A-D1F0D3E04C08}.Release|x86.ActiveCfg = Release|Any CPU
 		{82F15A60-6EE7-4631-957A-D1F0D3E04C08}.Release|x86.Build.0 = Release|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Debug|x86.Build.0 = Debug|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,5 +291,6 @@ Global
 		{0413D8C9-D719-4740-9C51-A291C41E7A58} = {D0E6A994-3377-4E5C-9264-6417610C1C5A}
 		{0D315C39-1E90-49D2-97CA-3D237A47C252} = {D0E6A994-3377-4E5C-9264-6417610C1C5A}
 		{82F15A60-6EE7-4631-957A-D1F0D3E04C08} = {D0E6A994-3377-4E5C-9264-6417610C1C5A}
+		{6B9A8BED-34CE-481E-A798-7DEE88C92E13} = {D0E6A994-3377-4E5C-9264-6417610C1C5A}
 	EndGlobalSection
 EndGlobal

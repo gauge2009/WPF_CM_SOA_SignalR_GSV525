@@ -72,7 +72,8 @@
           </awa:Prompt.Result>
           <awa:Prompt.Text>
             <InArgument x:TypeArguments="x:String">
-              <mca:CSharpValue x:TypeArguments="x:String">"Please enter a number between 1 and " + MaxNumber</mca:CSharpValue>
+              <mca:CSharpValue x:TypeArguments="x:String" xml:space="preserve">"请输入一个位于1和" + MaxNumber
++ "之间的整数"</mca:CSharpValue>
             </InArgument>
           </awa:Prompt.Text>
         </awa:Prompt>
@@ -110,12 +111,12 @@
             </If>
           </If.Then>
           <If.Else>
-            <WriteLine Text="猜对了" sap2010:WorkflowViewState.IdRef="WriteLine_3" />
+            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="猜对了" />
           </If.Else>
         </If>
       </Sequence>
     </DoWhile>
-    <sads:DebugSymbol.Symbol>d19DOlxUMl8xNlxHcmFwaFxXUEZfQ01fU09BX1NpZ25hbFJcbWFpblxBbGF5YXouV0YuU2VxdWVudGlhbE51bWJlckd1ZXNzV29ya2Zsb3dcS2V5QWN0aXZpdHkueGFtbBgtA3cOAgEBMgU9DgIBMj4FdQ8CAQI6CzpyAgE4NQs1VgIBM0AJQFcCAS1CB3QSAgEDQwlOFgIBIU8JWhICARZbCXMOAgEEQyJDLgIBLEsPS38CASdGD0ZZAgEiVw9XVQIBHFIPUlkCARdeD15dAgEFYg1uEgIBDHENcVMCAQplE2VjAgENaRFpVwIBFGwRbFcCARJxHXEiAgELaU9pVAIBFWxPbFQCARM=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d19DOlxUMl8xNlxHcmFwaFxXUEZfQ01fU09BX1NpZ25hbFJcbWFpblxBbGF5YXouV0YuU2VxdWVudGlhbE51bWJlckd1ZXNzV29ya2Zsb3dcS2V5QWN0aXZpdHkueGFtbBgtA3gOAgEBMgU9DgIBMj4Fdg8CAQI6CzpyAgE4NQs1VgIBM0AJQFcCAS1CB3USAgEDQwlPFgIBIVAJWxICARZcCXQOAgEEQyJDLgIBLEsPTBwCASdGD0ZZAgEiWA9YVQIBHFMPU1kCARdfD19dAgEFYw1vEgIBDHINclMCAQpmE2ZjAgENahFqVwIBFG0RbVcCARJyS3JQAgELak9qVAIBFW1PbVQCARM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

@@ -5,6 +5,7 @@ using System.Activities.Statements;
 using System.Threading;
 using System.Collections.Generic;
 using Alayaz.WF.FlowchartNumberGuessWorkflow;
+using Alayaz.WF.StateMachineNumberGuessWorkflow;
 
 namespace Alayaz.WF.NumberGuessWorkflowHost
 {
@@ -26,8 +27,9 @@ namespace Alayaz.WF.NumberGuessWorkflowHost
             var inputs = new Dictionary<string, object>() { { "MaxNumber", 100 } };
 
             WorkflowApplication wfApp =
-                //new WorkflowApplication(new KeyActivity(), inputs);
-                  new WorkflowApplication(new FlowActivity(), inputs);
+                  //new WorkflowApplication(new KeyActivity(), inputs);
+                  //new WorkflowApplication(new FlowActivity(), inputs);
+                  new WorkflowApplication(new StateMachineActivity(), inputs);
 
 
             wfApp.Completed = delegate (WorkflowApplicationCompletedEventArgs e)
