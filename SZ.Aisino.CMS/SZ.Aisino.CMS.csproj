@@ -435,6 +435,8 @@
     <Content Include="Views\EsDPMap\Index.cshtml" />
     <Content Include="Views\EsDPMap\DP3_1_Singleton.cshtml" />
     <Content Include="Views\EsDPMap\DP4_1_Observer.cshtml" />
+    <Content Include="Views\EsDPMap\ESDP5_Strategy_FormAuth.cshtml" />
+    <Content Include="Views\EsDPMap\ESDP5_Strategy_Animate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
